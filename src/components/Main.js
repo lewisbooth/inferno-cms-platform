@@ -8,7 +8,7 @@ class Main extends Component {
       <div className="App">
         <div className="App-header">
           <h2> 
-            <IndexLink>Inferno Boilerplate</IndexLink>
+            <IndexLink>Inferno Router Boilerplate</IndexLink>
           </h2>
           <ul className="menu">
             <li>
@@ -16,6 +16,9 @@ class Main extends Component {
             </li>
             <li>
               <Link to='/portfolio'>Portfolio</Link>
+            </li>
+            <li>
+              <Link to='/contact'>Contact</Link>
             </li>
           </ul>
         </div>
