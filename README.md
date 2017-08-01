@@ -1,2 +1,1 @@
-# lewisbooth-infernojs
-Trying out InfernoJS 
+Personal portfolio website built with InfernoJS

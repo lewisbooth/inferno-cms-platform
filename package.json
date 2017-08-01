@@ -1,0 +1,21 @@
+{
+  "name": "lewisbooth-infernojs",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "inferno": "^3.7.1",
+    "inferno-component": "^3.7.1",
+    "inferno-router": "^3.7.1",
+    "inferno-scripts": "4.2.0",
+    "npm-run-all": "^4.0.2"
+  },
+  "scripts": {
+    "build-css": "stylus src/styles/styles.styl -o src/styles.css",
+    "watch-css": "stylus -w src/styles/styles.styl -o src/styles.css",
+    "start-js": "inferno-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && inferno-scripts build",
+    "test": "inferno-scripts test --env=jsdom",
+    "eject": "inferno-scripts eject"
+  }
+}
