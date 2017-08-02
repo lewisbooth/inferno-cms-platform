@@ -5,6 +5,7 @@ class Portfolio extends Component {
     return (
       <div className="Portfolio">
         <p>This is the portfolio page</p>
+        {this.props.children}
       </div>
     );
   }
