@@ -3,10 +3,12 @@ import Component from 'inferno-component';
 import Footer from './Footer';
 
 class Main extends Component {
+
   render() {
+ 
     return (
       <div className="App">
-        <div className="App-header">
+        <div className="Nav" style='background-image: '>
           <h2> 
             <IndexLink>Inferno Router Boilerplate</IndexLink>
           </h2>
@@ -22,10 +24,9 @@ class Main extends Component {
             </li>
           </ul>
         </div>
-        <div className="Page-container">
-          {this.props.children}
+        <div className="page-container">
+          { this.props.children }
         </div>
-        <Footer />
       </div>
     );
   }

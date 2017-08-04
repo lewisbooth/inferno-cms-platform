@@ -3,9 +3,9 @@ import Component from 'inferno-component';
 class Footer extends Component {
   render() {
     return (
-      <div className="Footer">
+      <footer className="Footer">
         <p>This is the footer</p>
-      </div>
+      </footer>
     );
   }
 }

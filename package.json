@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.16.2",
     "inferno": "^3.7.1",
+    "inferno-compat": "^3.7.1",
     "inferno-component": "^3.7.1",
     "inferno-router": "^3.7.1",
     "inferno-scripts": "4.2.0",

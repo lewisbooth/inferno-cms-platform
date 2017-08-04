@@ -3,34 +3,115 @@ body {
   padding: 0;
   font-family: "Open Sans", "lucida grande", "Segoe UI", arial, verdana, "lucida sans unicode", tahoma, sans-serif;
 }
-.App-header {
+button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+.Nav {
   text-align: center;
   background-color: #3d464d;
   height: 150px;
   padding: 20px;
   color: #fff;
 }
-.App-header a {
+.Nav a {
   color: #fff;
 }
-.App-header ul {
+.Nav ul {
   list-style: none;
   padding-left: 0;
   display: flex;
   justify-content: center;
 }
-.App-header ul li {
+.Nav ul li {
   margin: 0 20px;
 }
-.App-header h2 a {
+.Nav h2 a {
   text-decoration: none;
-}
-.Page-container {
-  max-width: 1200px;
-  margin: 0 auto;
 }
 .Footer {
   background-color: #3d464d;
   color: #fff;
   text-align: center;
+}
+.Portfolio__items--block,
+.Portfolio display flex--block,
+.Portfolio align-items space-around--block {
+  position: relative;
+  float: left;
+  width: 200px;
+  height: 200px;
+  background-color: #222;
+  transition: all 0.3s;
+}
+.Portfolio__items--block:hover .Portfolio__items--block--remove-item,
+.Portfolio display flex--block:hover .Portfolio__items--block--remove-item,
+.Portfolio align-items space-around--block:hover .Portfolio__items--block--remove-item {
+  opacity: 1;
+}
+.Portfolio__items--block--remove-item,
+.Portfolio display flex--block--remove-item,
+.Portfolio align-items space-around--block--remove-item {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  height: 20px;
+  width: 20px;
+  padding: 0 2px 2px 2px;
+  border: none;
+  background-color: #222;
+  color: #fff;
+  z-index: 1;
+  opacity: 0;
+}
+.Portfolio__items--block--remove-item:hover,
+.Portfolio display flex--block--remove-item:hover,
+.Portfolio align-items space-around--block--remove-item:hover {
+  cursor: pointer;
+}
+.Portfolio__items--block--add-item,
+.Portfolio display flex--block--add-item,
+.Portfolio align-items space-around--block--add-item {
+  padding: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s;
+  background-color: #fafafa;
+  -webkit-box-shadow: inset 0px 0px 0px 3px #f0f0f0;
+  -moz-box-shadow: inset 0px 0px 0px 3px #f0f0f0;
+  box-shadow: inset 0px 0px 0px 3px #f0f0f0;
+}
+.Portfolio__items--block--add-item:hover,
+.Portfolio display flex--block--add-item:hover,
+.Portfolio align-items space-around--block--add-item:hover {
+  background-color: #f4f4f4;
+  -webkit-box-shadow: inset 0px 0px 0px 5px #c8c8c8;
+  -moz-box-shadow: inset 0px 0px 0px 5px #c8c8c8;
+  box-shadow: inset 0px 0px 0px 5px #c8c8c8;
+}
+.Portfolio__items--block--add-item:hover .Portfolio__items--block--add-item--inner,
+.Portfolio display flex--block--add-item:hover .Portfolio__items--block--add-item--inner,
+.Portfolio align-items space-around--block--add-item:hover .Portfolio__items--block--add-item--inner {
+  color: #666;
+}
+.Portfolio__items--block--add-item--inner,
+.Portfolio display flex--block--add-item--inner,
+.Portfolio align-items space-around--block--add-item--inner {
+  position: absolute;
+  color: #aaa;
+  transition: all 0.3s;
+}
+.Portfolio__items--block--add-item--inner--plus,
+.Portfolio display flex--block--add-item--inner--plus,
+.Portfolio align-items space-around--block--add-item--inner--plus {
+  font-size: 5em;
+}
+.Portfolio__items--block--add-item--inner--text,
+.Portfolio display flex--block--add-item--inner--text,
+.Portfolio align-items space-around--block--add-item--inner--text {
+  font-size: 1.2em;
 }
