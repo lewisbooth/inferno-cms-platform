@@ -4,7 +4,7 @@ class Footer extends Component {
   render() {
     return (
       <footer className="Footer">
-        <p>This is the footer</p>
+        <p>This is not the greatest footer in the world, this is just a tribute</p>
       </footer>
     );
   }

@@ -1,17 +1,20 @@
 import Component from 'inferno-component';
 import APIData from '../data/unsplash-api';
+import PortfolioImage from './PortfolioImage';
+import Lightbox from './Lightbox';
 
 class Portfolio extends Component {
 
   constructor(props) {
     super(props);
-
+    this.removeItem = this.removeItem.bind(this);
+    this.handleLightbox = this.handleLightbox.bind(this);
     this.state = {
       galleryItems: APIData,
       galleryItemsLength: 10,
+      lightbox: null,
       apiKey: 'a2a706e3895ae886b1c812a3263b8505ef8d7aabc1f991486d4083e545736f95'
     }
-    
   }
 
   removeItem(index) {
@@ -29,19 +32,24 @@ class Portfolio extends Component {
     })
   }
 
+  handleLightbox(enabled = false, index) {
+    if (index >= this.state.galleryItemsLength) { index = 0 }
+    if (index < 0) { index = this.state.galleryItemsLength - 1 }
+    let lightbox = enabled ? index : null
+    this.setState({ lightbox })
+  }
+
   render() {
     return (
       <div className="Portfolio">
-        <h3>This is the portfolio page</h3>
+        <h2>Portfolio</h2>
+        { this.state.lightbox !== null ? <Lightbox imgData={ this.state.galleryItems[this.state.lightbox] } handleLightbox={ this.handleLightbox.bind(this) } num={ this.state.lightbox } /> : '' }        
         <div className="Portfolio__items">
           { this.state.galleryItems.map((entry, i) => {
             return (
               i < this.state.galleryItemsLength ?
-              <div className="Portfolio__items--block">
-                <img className='Portfolio__items--block--image' key={'Portfolio--image-'+i} src={ `https://source.unsplash.com/${entry.id}/200x200` }/>
-                <button onclick={ () => this.removeItem(i) } key={'Portfolio--remove-'+i} className="Portfolio__items--block--remove-item">x</button>
-              </div>
-              : ''
+              <PortfolioImage key={ i } num={ i } img={ entry.id } delete={ this.removeItem.bind(this) } handleLightbox={ this.handleLightbox.bind(this) } />
+              : null
             )
           })}
           <div className="Portfolio__items--block">

@@ -8,10 +8,10 @@ class Main extends Component {
  
     return (
       <div className="App">
-        <div className="Nav" style='background-image: '>
-          <h2> 
-            <IndexLink>Inferno Router Boilerplate</IndexLink>
-          </h2>
+        <div className="Nav">
+          <h1> 
+            <IndexLink>Inferno CMS</IndexLink>
+          </h1>
           <ul className="menu">
             <li>
               <Link to='/'>Home</Link>
@@ -27,6 +27,7 @@ class Main extends Component {
         <div className="page-container">
           { this.props.children }
         </div>
+        <Footer />
       </div>
     );
   }

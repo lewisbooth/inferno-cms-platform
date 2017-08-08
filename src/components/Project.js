@@ -4,7 +4,7 @@ class Project extends Component {
   render() {
     return (
       <div className="Project">
-        <p>This is project { this.props.params.project }</p>
+        <p>Project {this.props.params.project}</p>
       </div>
     );
   }
