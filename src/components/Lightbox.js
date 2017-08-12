@@ -4,7 +4,9 @@ class Lightbox extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { imageStatus: 'loading' }
+    this.state = { 
+      imageStatus: 'loading' 
+    }
   }
 
   handleImageLoaded(loaded = true) {
@@ -17,6 +19,7 @@ class Lightbox extends Component {
 
   componentDidMount() {
     document.body.style.overflow = 'hidden'
+    
   }
   
   componentWillUnmount() {
@@ -33,19 +36,9 @@ class Lightbox extends Component {
         <button className="Lightbox__nav" onClick={ (e) => { handleLightbox(true, this.props.num - 1); this.handleImageLoaded(false) } }>&lt;</button>
         <div className="Lightbox__image">
           <div className="Lightbox__image--loading">Loading...</div>
-          <img src={ `https://source.unsplash.com/${imgData.id}/1000x600` } className={ "Lightbox__image--active " + this.state.imageStatus } onLoad={ this.handleImageLoaded.bind(this) } alt={ imgData.user.name } />
+          <img src={ imgData[0] + '.jpg' } className={ "Lightbox__image--active " + this.state.imageStatus } onLoad={ this.handleImageLoaded.bind(this) } alt={ imgData[1] } />
           <div className="Lightbox__image--caption">
-            <img src={ imgData.user.profile_image.large } alt={ imgData.user.name } className="Lightbox__image--caption--profile-pic"/>
-            <div className="Lightbox__image--caption--section">
-              <h5>Photographer</h5>
-              <p><a href={ imgData.user.links.html }>{ imgData.user.name }</a></p>
-            </div>
-            { imgData.location ? 
-              <div className="Lightbox__image--caption--section">
-                <h5>Location</h5>
-                <p>{ imgData.location.title }</p>
-              </div> 
-            : null }
+            <h5>{ imgData[1] }</h5>
           </div>
         </div>
         <button className="Lightbox__nav" onClick={ (e) => { handleLightbox(true, this.props.num + 1); this.handleImageLoaded(false) } }>&gt;</button>
