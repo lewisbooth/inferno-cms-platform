@@ -7,7 +7,9 @@ class Main extends Component {
     super(props, context) 
     this.state = {
       navImage: this.getNavImage(),
-      oldNavImage: null
+      oldNavImage: this.getNavImage(),
+      navImageLoading: false,
+      navImageLoaded: false,
     }
   }
 
@@ -17,17 +19,41 @@ class Main extends Component {
     return `/images/nav-background${navImage}.jpg`;
   }
 
+  handleImageLoaded() {
+    if (this.state.navImageLoaded) return;
+    setTimeout(function() { 
+      this.setState({ 
+        navImageLoaded: true
+      }); }.bind(this)
+    , 1);
+    setTimeout(function() { 
+      this.setState({ 
+        oldNavImage: this.state.navImage,
+        navImageLoading: false 
+      }); }.bind(this)
+    , 500);
+  }
+
   componentDidUpdate() {
-    const newNavImage = this.getNavImage();
-    if (newNavImage !== this.state.navImage) {
-      this.setState({ navImage: this.getNavImage() })
+    const oldNavImage = this.state.navImage;
+    const navImage = this.getNavImage();
+    if (navImage !== oldNavImage) {
+      this.setState({ 
+        navImage,
+        oldNavImage,
+        navImageLoading: true,
+        navImageLoaded: false
+      })
     }
   }
 
   render() { 
     return (
       <div className="Nav">
-        <img src={ this.state.navImage } alt="The Orange Tree - Restauraunt Photography" className="Nav__background-image" />
+        <img src={ this.state.oldNavImage } alt="The Orange Tree - Restauraunt Photography" className="Nav__background-image" />
+        { this.state.navImageLoading ? 
+          <img src={ this.state.navImage } alt="The Orange Tree - Restauraunt Photography" className={ `Nav__background-image ${ this.state.navImageLoaded ? 'loaded' : 'loading' }` } onload={ this.handleImageLoaded() } />
+        : '' }
         <div className="Nav__wrapper">
           <IndexLink>
             <img src="/images/orange-tree-logo.jpg" alt="Orange Tree Logo" className="Nav__main-logo"/>

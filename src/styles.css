@@ -46,6 +46,13 @@ button {
   position: absolute;
   min-width: 100%;
   z-index: 0;
+  transition: opacity 0.5s;
+}
+.Nav__background-image.loading {
+  opacity: 0;
+}
+.Nav__background-image.loaded {
+  opacity: 1;
 }
 .Nav__cta {
   position: absolute;
