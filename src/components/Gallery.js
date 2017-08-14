@@ -11,7 +11,7 @@ class Gallery extends Component {
     this.handleLightbox = this.handleLightbox.bind(this);
     this.state = {
       galleryItems: gallery,
-      galleryItemsLength: 10,
+      galleryItemsLength: 16,
       lightbox: null
     }
   }
@@ -40,10 +40,12 @@ class Gallery extends Component {
 
   render() {
     return (
-      <div className="Gallery">
+      <div className="Gallery page">
         <div className="page-container">
           <h2>Gallery</h2>
-          { this.state.lightbox !== null ? <Lightbox imgData={ this.state.galleryItems[this.state.lightbox] } handleLightbox={ this.handleLightbox.bind(this) } num={ this.state.lightbox } /> : '' }        
+          { this.state.lightbox !== null ? 
+            <Lightbox imgData={ this.state.galleryItems[this.state.lightbox] } handleLightbox={ this.handleLightbox.bind(this) } num={ this.state.lightbox } /> 
+          : '' }        
           <div className="Gallery__items">
             { this.state.galleryItems.map((entry, i) => {
               return (

@@ -5,6 +5,7 @@ import Main from './components/Main';
 import Home from './components/Home';
 import Contact from './components/Contact';
 import Gallery from './components/Gallery';
+import Menu from './components/Menu';
 import './styles.css';
 
 const browserHistory = createBrowserHistory();
@@ -13,6 +14,7 @@ const routes = (
   <Router history={ browserHistory }>
     <Route component={ Main }>
         <IndexRoute component={ Home }/>
+        <Route path="menu" component={ Menu }/>
         <Route path="gallery" component={ Gallery }/>
         <Route path="contact" component={ Contact }/>
     </Route>

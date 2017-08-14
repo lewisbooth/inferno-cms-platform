@@ -1,20 +1,30 @@
+@font-face {
+  font-family: 'Ostrich Sans';
+  src: url("/fonts/ostrich-sans-black.woff");
+  font-weight: 900;
+  font-style: normal;
+}
 * {
-  font-family: "Nexa", "lucida grande", "Segoe UI", arial, verdana, "lucida sans unicode", tahoma, sans-serif;
+  font-family: "Nexa Light", "Segoe UI", arial, verdana, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 body {
   margin: 0;
   padding: 0;
+  background-color: #eaeaea;
 }
 button {
   cursor: pointer;
   outline: none;
   border: none;
+  padding: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 .Nav {
   text-align: center;
   background-color: #222;
-  background-position: center;
-  background-size: cover;
   padding: 30px 20px;
   margin: 0;
   color: #fff;
@@ -24,14 +34,53 @@ button {
   justify-content: center;
   flex-direction: column;
   border-bottom: 1px solid #df7d32;
-  transition: background-image 0.5s;
+  overflow: hidden;
+  position: relative;
 }
 .Nav a {
   color: #eaeaea;
   text-decoration: none;
   letter-spacing: 0.1em;
 }
-.Nav__menu {
+.Nav__background-image {
+  position: absolute;
+  min-width: 100%;
+  z-index: 0;
+}
+.Nav__cta {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+.Nav__cta--book-table {
+  background-color: #df7d32;
+  color: #eaeaea;
+  padding: 20px 20px 15px 20px;
+  font-size: 1em;
+}
+.Nav__cta--book-table:hover {
+  background-color: #b05c1c;
+}
+.Nav__cta--divide {
+  margin: 1.2em 0 1em 0;
+}
+.Nav__cta--phone {
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+}
+.Nav__cta--phone--text {
+  padding-top: 0.1em;
+}
+.Nav__cta--phone--icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.4em;
+}
+.Nav__wrapper {
+  z-index: 1;
+}
+.Nav__wrapper--menu {
   list-style: none;
   padding-left: 0;
   margin-top: 60px;
@@ -39,11 +88,16 @@ button {
   justify-content: space-around;
   max-width: 300px;
 }
-.Nav__menu li {
+.Nav__wrapper--menu li {
   margin: 0 20px;
   text-transform: uppercase;
+  font-size: 1.1em;
+  font-weight: 700;
 }
-.Nav h1 a {
+.Nav__wrapper--menu li a:hover {
+  text-decoration: underline;
+}
+.Nav__wrapper h1 a {
   text-decoration: none;
 }
 h2 {
@@ -52,7 +106,8 @@ h2 {
   letter-spacing: 0.15em;
   width: 100%;
   text-align: center;
-  font-family: 'Ostrich Sans Black';
+  font-family: 'Ostrich Sans';
+  margin: 50px auto;
 }
 .Footer {
   background-color: #111;
@@ -60,13 +115,19 @@ h2 {
   text-align: center;
   padding: 20px;
 }
-.page-container {
+.page {
+  padding: 12px 50px 80px 50px;
+}
+.page .page-container {
   max-width: 1200px;
   margin: 0 auto;
 }
+.Menu {
+  background-color: #222;
+  color: #eaeaea;
+}
 .Gallery {
   background-color: #222;
-  padding: 20px 50px 80px 50px;
   color: #eaeaea;
 }
 .Gallery__items {
@@ -147,12 +208,13 @@ h2 {
   box-sizing: border-box;
   transition: all 0.3s;
   background-color: #222;
-  -webkit-box-shadow: inset 0px 0px 0px 2px #2d2d2d;
-  -moz-box-shadow: inset 0px 0px 0px 2px #2d2d2d;
-  box-shadow: inset 0px 0px 0px 2px #2d2d2d;
+  -webkit-box-shadow: inset 0px 0px 0px 2px #3c3c3c;
+  -moz-box-shadow: inset 0px 0px 0px 2px #3c3c3c;
+  box-shadow: inset 0px 0px 0px 2px #3c3c3c;
 }
 .Gallery__items--block--add-item > div {
-  color: #666;
+  color: #777;
+  font-size: 1.4em;
 }
 .Gallery__items--block--add-item:hover {
   cursor: pointer;
@@ -253,6 +315,7 @@ h2 {
   display: flex;
   border-top: 1px solid #df7d32;
   text-align: center;
+  padding: 30px 0;
 }
 .Lightbox__image--caption h5 {
   width: 100%;

@@ -1,25 +1,36 @@
 $darkgrey = #222
 $whitetext = #eaeaea
 $orange = #df7d32
+$darkorange = #b05c1c
 
-* {
-  font-family "Nexa", "lucida grande", "Segoe UI", arial, verdana, "lucida sans unicode", tahoma, sans-serif
-}
+@font-face 
+  font-family 'Ostrich Sans'
+  src url('/fonts/ostrich-sans-black.woff')
+  font-weight 900
+  font-style normal
+
+* 
+  font-family "Nexa Light", "Segoe UI", arial, verdana, sans-serif
+  margin 0
+  padding 0
 
 body
   margin 0
   padding 0
+  background-color $whitetext
 
 button
   cursor pointer
   outline none
   border none
+  padding 10px
+  text-transform uppercase
+  letter-spacing 0.1em
 
-.Nav
+
+.Nav 
   text-align center
   background-color $darkgrey
-  background-position center
-  background-size cover
   padding 30px 20px
   margin 0
   color #fff
@@ -29,28 +40,73 @@ button
   justify-content center
   flex-direction column
   border-bottom 1px solid $orange
-  transition background-image .5s
+  overflow hidden
+  position relative
 
   a
     color $whitetext
     text-decoration none
     letter-spacing 0.1em
 
-  &__menu
-    list-style none
-    padding-left 0
-    margin-top 60px
-    display flex
-    justify-content space-around
-    max-width 300px
+  &__background-image
+    position absolute
+    min-width 100%
+    z-index 0
 
-    & li
-      margin 0 20px
-      text-transform uppercase
+  &__cta
+    position absolute
+    top 50px
+    right 50px
 
-  h1 
-    & a
-      text-decoration none
+    &--book-table
+      background-color $orange
+      color $whitetext
+      padding 20px 20px 15px 20px
+      font-size 1em
+      
+      &:hover
+        background-color $darkorange
+
+    &--divide
+      margin 1.2em 0 1em 0
+
+    &--phone
+      letter-spacing 0.1em
+      display flex
+      align-items center
+
+      &--text
+        padding-top 0.1em
+
+      &--icon
+        width 20px
+        height 20px
+        margin-right 0.4em
+        
+    
+  &__wrapper
+    z-index 1
+
+    &--menu
+      list-style none
+      padding-left 0
+      margin-top 60px
+      display flex
+      justify-content space-around
+      max-width 300px
+
+      & li
+        margin 0 20px
+        text-transform uppercase
+        font-size 1.1em
+        font-weight 700
+
+        & a:hover
+          text-decoration underline
+
+    h1 
+      & a
+        text-decoration none
 
 h2
   text-transform uppercase
@@ -58,7 +114,8 @@ h2
   letter-spacing 0.15em
   width 100%
   text-align center
-  font-family 'Ostrich Sans Black'
+  font-family 'Ostrich Sans'
+  margin 50px auto
 
 .Footer
   background-color #111
@@ -66,13 +123,19 @@ h2
   text-align center
   padding 20px
 
-.page-container
-  max-width 1200px
-  margin 0 auto
+.page
+  padding 12px 50px 80px 50px
+
+  & .page-container
+    max-width 1200px
+    margin 0 auto
+
+.Menu
+  background-color $darkgrey
+  color $whitetext
 
 .Gallery
   background-color $darkgrey
-  padding 20px 50px 80px 50px
   color $whitetext
 
   &__items
@@ -153,19 +216,20 @@ h2
         box-sizing border-box
         transition all .3s
         background-color $darkgrey
-        -webkit-box-shadow inset 0px 0px 0px 2px rgba(45,45,45,1);
-        -moz-box-shadow inset 0px 0px 0px 2px rgba(45,45,45,1);
-        box-shadow inset 0px 0px 0px 2px rgba(45,45,45,1);
+        -webkit-box-shadow inset 0px 0px 0px 2px rgba(60,60,60,1)
+        -moz-box-shadow inset 0px 0px 0px 2px rgba(60,60,60,1)
+        box-shadow inset 0px 0px 0px 2px rgba(60,60,60,1)
 
         & > div
-          color #666
+          color #777777
+          font-size 1.4em
 
         &:hover
           cursor pointer
           background-color #333
-          -webkit-box-shadow inset 0px 0px 0px 2px rgba(223,125,50,1);
-          -moz-box-shadow inset 0px 0px 0px 2px rgba(223,125,50,1);
-          box-shadow inset 0px 0px 0px 2px rgba(223,125,50,1);
+          -webkit-box-shadow inset 0px 0px 0px 2px rgba(223,125,50,1)
+          -moz-box-shadow inset 0px 0px 0px 2px rgba(223,125,50,1)
+          box-shadow inset 0px 0px 0px 2px rgba(223,125,50,1)
 
           & > div
             color #aaa
@@ -259,14 +323,15 @@ h2
       display flex
       border-top 1px solid $orange
       text-align center
+      padding 30px 0
 
       h5
         width 100%
         text-transform uppercase
         font-size 1.2em
         letter-spacing 0.1em
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased
+        -moz-osx-font-smoothing: grayscale
     
         
 
