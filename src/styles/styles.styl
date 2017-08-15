@@ -181,7 +181,6 @@ ul
 
   &__blocks
     column-count 2
-    column-gap 1%
 
   &__title
     width 100%
@@ -218,13 +217,13 @@ ul
     font-size 1em
     margin-bottom 10px
 
-  &__items 
+  &__items
   
     li
       display flex
       flex-wrap wrap
       justify-content space-between
-      padding 7px 10px
+      padding 10px 10px
 
       *
         font-family 'Helvetica Neue', sans-serif
@@ -242,6 +241,12 @@ ul
       flex 0 0 90%
       color #666
       font-size 0.9em
+
+    &--section
+      margin-bottom 15px
+      
+      &:last-child
+        margin-bottom 0 !important
 
     &--allergens
       margin-left 10px

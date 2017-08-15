@@ -180,49 +180,52 @@ export const menuItems = [{
       ]
     },{
       'title': 'Salads',
-      'description': 'Price are for large/small portions',
       'items': [{
-          'title': 'House Salad',
-          'price': '17.95 / 14.95',
-          'tags': ['vegetarian']
-        },{
-          'title': 'Caesar Salad',
-          'price': '17.95 / 14.95'
-        },{
-          'title': 'Crispy Pork & Pineapple Salad',
-          'price': '24.95 / 20.95'
-        },{
-          'title': 'Pan-Seared Fillet of Sea Bass',
-          'price': '25.95'
-        }
-      ]
+        '': 
+          [{
+            'title': 'House Salad',
+            'price': '17.95 / 14.95',
+            'tags': ['vegetarian']
+          },{
+            'title': 'Caesar Salad',
+            'price': '17.95 / 14.95'
+          },{
+            'title': 'Crispy Pork & Pineapple Salad',
+            'price': '24.95 / 20.95'
+          },{
+            'title': 'Pan-Seared Fillet of Sea Bass',
+            'price': '25.95'
+          }] 
+      }]
     },{
       'title': 'Side Orders',
       'items': [{
-          'title': 'Chips',
-          'price': '3.25',
-          'tags': ['vegan', 'vegetarian']
-        },{
-          'title': 'Jacket Potato',
-          'price': '2.95',
-          'tags': ['vegan', 'vegetarian']
-        },{
-          'title': 'Side Salad',
-          'price': '3.95',
-          'tags': ['vegan', 'vegetarian']
-        },{
-          'title': 'Seasonal Vegetables',
-          'price': '3.95',
-          'tags': ['vegetarian']
-        },{
-          'title': 'Garlic Bread',
-          'price': '3.95',
-          'tags': ['vegetarian']
-        },{
-          'title': 'Onion Rings',
-          'price': '3.95',
-          'tags': ['vegan', 'vegetarian']
-        }
-      ]
+        '': 
+          [{
+            'title': 'Chips',
+            'price': '3.25',
+            'tags': ['vegan', 'vegetarian']
+          },{
+            'title': 'Jacket Potato',
+            'price': '2.95',
+            'tags': ['vegan', 'vegetarian']
+          },{
+            'title': 'Side Salad',
+            'price': '3.95',
+            'tags': ['vegan', 'vegetarian']
+          },{
+            'title': 'Seasonal Vegetables',
+            'price': '3.95',
+            'tags': ['vegetarian']
+          },{
+            'title': 'Garlic Bread',
+            'price': '3.95',
+            'tags': ['vegetarian']
+          },{
+            'title': 'Onion Rings',
+            'price': '3.95',
+            'tags': ['vegan', 'vegetarian']
+          }]
+      }]
     }]
 }]  

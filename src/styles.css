@@ -167,7 +167,6 @@ ul {
 }
 .MenuSection__blocks {
   column-count: 2;
-  column-gap: 1%;
 }
 .MenuSection__title {
   width: 100%;
@@ -207,7 +206,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 7px 10px;
+  padding: 10px 10px;
 }
 .MenuBlock__items li * {
   font-family: 'Helvetica Neue', sans-serif;
@@ -225,6 +224,12 @@ ul {
   flex: 0 0 90%;
   color: #666;
   font-size: 0.9em;
+}
+.MenuBlock__items--section {
+  margin-bottom: 15px;
+}
+.MenuBlock__items--section:last-child {
+  margin-bottom: 0 !important;
 }
 .MenuBlock__items--allergens {
   margin-left: 10px;

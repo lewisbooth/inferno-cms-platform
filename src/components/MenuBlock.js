@@ -6,7 +6,7 @@ class MenuBlock extends Component {
 
     const MenuItem = (props) => {
       return (
-        <li className="MenuBlock__items--section">
+        <li>
           <div className="MenuBlock__items--name">
             { props.title }
             { props.tags ? 
@@ -36,21 +36,15 @@ class MenuBlock extends Component {
     }
 
     const itemList = this.props.items.map(item => {
-      // If not a subheading, return the item directly
-      if (item.title) {
-        return <MenuItem title={ item.title } price={ item.price } description={ item.description } tags={ item.tags } />        
-      } else {
-        // Handle subheadings
-        const subHeading = Object.keys(item);
-        return (
-          <div>
-            <p className="MenuBlock__items--subheading">{ subHeading }</p>
-            { item[subHeading].map(subItem => {
-              return <MenuItem title={ subItem.title } price={ subItem.price } description={ subItem.description } tags={ subItem.tags } />
-            })}
-          </div>
-        )
-      }
+      const subHeading = Object.keys(item);
+      return (
+        <div className="MenuBlock__items--section">
+          <p className="MenuBlock__items--subheading">{ subHeading }</p>
+          { item[subHeading].map(subItem => {
+            return <MenuItem title={ subItem.title } price={ subItem.price } description={ subItem.description } tags={ subItem.tags } />
+          })}
+        </div>
+      )
     })
 
     return (
