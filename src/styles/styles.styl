@@ -2,15 +2,29 @@ $darkgrey = #222
 $whitetext = #eaeaea
 $orange = #df7d32
 $darkorange = #b05c1c
+$nexalight = "Nexa Light Web", "Segoe UI", arial, verdana, sans-serif
+$nexabold = "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif
+$ostrich = "Ostrich Sans Web", "Segoe UI", arial, verdana, sans-serif
+
+@charset 'UTF-8'
 
 @font-face 
-  font-family 'Ostrich Sans'
-  src url('/fonts/ostrich-sans-black.woff')
-  font-weight 900
-  font-style normal
+  font-family 'Ostrich Sans Web'
+  src url('/fonts/ostrich-sans-black.woff') format('woff'),
+      url('/fonts/ostrich-sans-black.ttf') format('truetype')
+
+@font-face 
+  font-family 'Nexa Light Web'
+  src url('/fonts/nexa-light.woff') format('woff'),
+      url('/fonts/nexa-light.ttf') format('truetype')
+
+@font-face 
+  font-family 'Nexa Bold Web'
+  src url('/fonts/nexa-bold.woff') format('woff'),
+      url('/fonts/nexa-bold.ttf') format('truetype')
 
 * 
-  font-family "Nexa Light", "Segoe UI", arial, verdana, sans-serif
+  font-family $nexalight
   margin 0
   padding 0
 
@@ -18,6 +32,7 @@ body
   margin 0
   padding 0
   background-color $whitetext
+  overflow-y scroll
 
 button
   cursor pointer
@@ -27,6 +42,26 @@ button
   text-transform uppercase
   letter-spacing 0.1em
 
+h2
+  text-transform uppercase
+  font-size 3.5em
+  letter-spacing 0.15em
+  width 100%
+  text-align center
+  font-family $ostrich
+  margin 50px auto
+
+h3
+  text-transform uppercase
+  font-size 2.5em
+  letter-spacing 0.15em
+  width 100%
+  text-align center
+  font-family $ostrich
+  margin 50px auto
+
+ul
+  list-style none
 
 .Nav 
   text-align center
@@ -50,6 +85,9 @@ button
 
   &__background-image
     position absolute
+    left 0
+    top 50%
+    transform translateY(-50%)
     min-width 100%
     z-index 0
     transition opacity 0.5s
@@ -70,6 +108,7 @@ button
       color $whitetext
       padding 20px 20px 15px 20px
       font-size 1em
+      font-family $nexabold
       
       &:hover
         background-color $darkorange
@@ -83,6 +122,7 @@ button
       align-items center
 
       &--text
+        font-size 1.2em
         padding-top 0.1em
 
       &--icon
@@ -115,15 +155,6 @@ button
       & a
         text-decoration none
 
-h2
-  text-transform uppercase
-  font-size 3.5em
-  letter-spacing 0.15em
-  width 100%
-  text-align center
-  font-family 'Ostrich Sans'
-  margin 50px auto
-
 .Footer
   background-color #111
   color #666
@@ -140,6 +171,85 @@ h2
 .Menu
   background-color $darkgrey
   color $whitetext
+
+  &__sections
+    max-width 1600px
+    margin 0 auto
+
+.MenuSection
+  padding 20px
+
+  &__blocks
+    column-count 2
+    column-gap 1%
+
+  &__title
+    width 100%
+    padding-bottom 20px
+    border-bottom 1px solid $orange
+    margin-bottom 30px
+
+
+.MenuBlock
+  background-color $whitetext
+  color $darkgrey
+  display inline-block
+  -webkit-column-break-inside avoid
+  page-break-inside avoid
+  break-inside avoid
+  float left
+  margin 0 0 1em
+  width 100%
+  padding 30px
+  box-sizing border-box
+  background-image url('/images/menu/menu-texture.jpg')
+
+  &__title
+    color $darkgrey
+    margin-bottom 10px
+    font-family $nexabold
+    font-size 1.6em
+    letter-spacing 0.1em
+    text-transform uppercase
+    padding-bottom 5px
+    border-bottom 1px solid $orange
+
+  &__description
+    font-size 1em
+    margin-bottom 10px
+
+  &__items 
+  
+    li
+      display flex
+      flex-wrap wrap
+      justify-content space-between
+      padding 7px 10px
+
+      *
+        font-family 'Helvetica Neue', sans-serif
+
+      &:nth-child(even)
+        background-color #ddd
+
+    &--subheading 
+      font-size 1.1em
+      padding 15px 0 5px 0
+      font-family $nexabold
+      text-transform uppercase
+
+    &--description
+      flex 0 0 90%
+      color #666
+      font-size 0.9em
+
+    &--allergens
+      margin-left 10px
+
+      &--tag
+        padding 0
+        margin-right 0
+        width 20px
 
 .Gallery
   background-color $darkgrey
