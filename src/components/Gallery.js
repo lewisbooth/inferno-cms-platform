@@ -1,4 +1,5 @@
 import Component from 'inferno-component';
+import Drag from './libs/Drag';
 import { gallery } from '../data/orange-tree-gallery';
 import GalleryImage from './GalleryImage';
 import Lightbox from './Lightbox';
@@ -47,13 +48,15 @@ class Gallery extends Component {
             <Lightbox imgData={ this.state.galleryItems[this.state.lightbox] } handleLightbox={ this.handleLightbox.bind(this) } num={ this.state.lightbox } /> 
           : '' }        
           <div className="Gallery__items">
-            { this.state.galleryItems.map((entry, i) => {
-              return (
-                i < this.state.galleryItemsLength ?
-                <GalleryImage key={ i } num={ i } img={ entry } delete={ this.removeItem.bind(this) } handleLightbox={ this.handleLightbox.bind(this) } />
-                : null
-              )
-            })}
+            <Drag onDrop={(e) => { console.log('Something was dropped!'); }}>
+              { this.state.galleryItems.map((entry, i) => {
+                return (
+                  i < this.state.galleryItemsLength ?
+                  <GalleryImage key={ i } num={ i } img={ entry } delete={ this.removeItem.bind(this) } handleLightbox={ this.handleLightbox.bind(this) } />
+                  : null
+                )
+              })}
+            </Drag>
             <div className="Gallery__items--block">
               <button onClick={ () => this.addItem(1) } className='Gallery__items--block--add-item'>
                 <div className="Gallery__items--block--add-item--inner">
