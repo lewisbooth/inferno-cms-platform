@@ -1,0 +1,30 @@
+.AdminBar
+  position fixed
+  bottom 0
+  padding 15px 20px
+  width 100vw
+  background-color #000
+  border-top 1px solid $orange
+  z-index 999
+  display flex
+  align-items center
+
+  button
+    background-color $orange
+    color white
+    border 1px solid white
+    font-family $nexabold
+    display flex
+    align-items center
+
+    svg
+      height 20px
+      margin-left 5px
+      fill $whitetext
+
+    &:hover
+      background-color white
+      color $darkorange
+
+      svg
+        fill $darkorange

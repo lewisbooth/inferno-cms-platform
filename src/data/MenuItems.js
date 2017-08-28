@@ -1,4 +1,4 @@
-export const menuItems = [{
+const MenuItems = [{
   'title': 'Main Menu',
   'pdf': 'https://www.theorangetreebarandgrill.co.uk/wp-content/uploads/2017/05/Orange-Tree-Main-Menu-Spring-17.pdf',
   'blocks': 
@@ -229,3 +229,5 @@ export const menuItems = [{
       }]
     }]
 }]  
+
+export default MenuItems

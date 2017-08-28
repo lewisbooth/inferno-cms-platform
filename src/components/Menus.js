@@ -1,12 +1,12 @@
 import Component from 'inferno-component';
 import MenuSection from './MenuSection';
-import { menuItems } from '../data/menu-items';
+import MenuItems from '../data/MenuItems';
 
 class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      'menus': menuItems        
+      'menus': MenuItems        
     }    
   }
 

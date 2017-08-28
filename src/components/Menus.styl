@@ -1,0 +1,87 @@
+
+.Menu
+  background-color $darkgrey
+  color $whitetext
+
+  &__sections
+    max-width 1600px
+    margin 0 auto
+
+.MenuSection
+  padding 20px
+
+  &__blocks
+    column-count 2
+
+  &__title
+    width 100%
+    padding-bottom 20px
+    border-bottom 1px solid $orange
+    margin-bottom 30px
+
+.MenuBlock
+  background-color $whitetext
+  color $darkgrey
+  display inline-block
+  -webkit-column-break-inside avoid
+  page-break-inside avoid
+  break-inside avoid
+  float left
+  margin 0 0 1em
+  width 100%
+  padding 30px
+  box-sizing border-box
+  background-image url('/images/menu/menu-texture.jpg')
+
+  &__title
+    color $darkgrey
+    margin-bottom 10px
+    font-family $nexabold
+    font-size 1.6em
+    letter-spacing 0.1em
+    text-transform uppercase
+    padding-bottom 5px
+    border-bottom 1px solid $orange
+
+  &__description
+    font-size 1em
+    margin-bottom 10px
+
+  &__items
+  
+    li
+      display flex
+      flex-wrap wrap
+      justify-content space-between
+      padding 10px 10px
+
+      *
+        font-family 'Helvetica Neue', sans-serif
+
+      &:nth-child(even)
+        background-color #ddd
+
+    &--subheading 
+      font-size 1.1em
+      padding 15px 0 5px 0
+      font-family $nexabold
+      text-transform uppercase
+
+    &--description
+      flex 0 0 90%
+      color #666
+      font-size 0.9em
+
+    &--section
+      margin-bottom 15px
+      
+      &:last-child
+        margin-bottom 0 !important
+
+    &--allergens
+      margin-left 10px
+
+      &--tag
+        padding 0
+        margin-right 0
+        width 20px

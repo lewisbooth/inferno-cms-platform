@@ -1,0 +1,169 @@
+.Gallery
+  background-color $darkgrey
+  color $whitetext
+
+  &__items
+    display flex
+    align-items space-around
+    flex-wrap wrap
+
+    &--block
+      position relative
+      float left
+      width 300px
+      height 300px
+      background-color $whitetext
+      transition all .3s
+      overflow hidden
+
+      &:hover
+        cursor pointer
+
+        & > div
+          opacity 1
+
+      &--image
+        transform scale(1) 
+        transition all .5s
+
+        &.drag-over
+          opacity 0.5 !important
+
+        &:hover
+          transform scale(1.1)
+
+          & + .Gallery__items--block--icons
+            opacity 0.5 !important
+
+          & + .Gallery__items--block--resize
+            opacity 1 !important
+
+        &.loading 
+          opacity 0
+
+        &.loaded
+          opacity 1
+
+        &[draggable]
+          cursor grab
+
+      &--resize
+        position absolute  
+        background-color rgba(255,255,255,0.75)
+        color $darkgrey
+        font-family $nexabold
+        text-transform uppercase
+        height 100%
+        width 100%
+        top 0
+        left 0
+        z-index 1
+        opacity 0
+        transition opacity .3s
+        display flex
+        flex-direction column
+        justify-content center
+        align-items center
+        pointer-events none
+        
+        h2
+          margin 0
+          line-height 1em
+
+      &--icons
+        position absolute  
+        height auto
+        top 10px
+        right 10px
+        z-index 2
+        display flex
+        flex-direction column
+        opacity 0
+
+        &--container
+          position relative
+          margin-bottom 5px
+
+          & button
+            height 30px
+            width 30px
+            position relative
+            font-size 1.2em
+            border none
+            border-radius 3px
+            background-color rgba(30,30,30,1)
+            z-index 2
+            opacity 1
+            color #fff
+
+            &:hover
+              cursor pointer
+
+              & + div
+                opacity 1
+                right 30px
+
+          &--remove-item
+            padding 3px 0 0 2px
+
+            &:hover
+              background-color firebrick
+
+          &--edit-item
+            padding 3px 0 0 2px
+
+            &:hover
+              background-color green
+
+          & div
+            background-color rgba(30,30,30,0.75)
+            color #fff
+            font-size .8em
+            position absolute
+            top 0
+            right 0
+            padding 7px
+            white-space nowrap
+            text-align center
+            opacity 0
+            pointer-events none
+            transition all .3s ease-in-out
+
+
+      &--add-item
+        padding 50%
+        display flex
+        justify-content center
+        align-items center
+        width 100%
+        box-sizing border-box
+        transition all .3s
+        background-color $darkgrey
+        -webkit-box-shadow inset 0px 0px 0px 2px rgba(60,60,60,1)
+        -moz-box-shadow inset 0px 0px 0px 2px rgba(60,60,60,1)
+        box-shadow inset 0px 0px 0px 2px rgba(60,60,60,1)
+
+        & > div
+          color #777777
+          font-size 1.4em
+
+        &:hover
+          cursor pointer
+          background-color #333
+          -webkit-box-shadow inset 0px 0px 0px 2px rgba(223,125,50,1)
+          -moz-box-shadow inset 0px 0px 0px 2px rgba(223,125,50,1)
+          box-shadow inset 0px 0px 0px 2px rgba(223,125,50,1)
+
+          & > div
+            color #aaa
+
+        &--inner
+          position absolute
+          color #aaa
+          transition all .3s
+          
+          &--plus
+            font-size 5em
+
+          &--text
+            font-size 1.2em
