@@ -18,12 +18,12 @@ class Lightbox extends Component {
   }
 
   componentDidMount() {
-    document.body.style.overflow = 'hidden'
+    document.body.classList.add('lightbox-active')
     
   }
   
   componentWillUnmount() {
-    document.body.style.overflow = 'auto'
+    document.body.classList.remove('lightbox-active')
   }
 
   render() {    
@@ -31,9 +31,9 @@ class Lightbox extends Component {
     const imgData = this.props.imgData
     return(
       // Close lightbox if user clicks on dark area, but not on the image/caption
-      <div className="Lightbox" onClick={ (e) => { if (e.target === this._vNode.dom) { handleLightbox(false) } } }>
-        <button className="Lightbox__close" onClick={ () => handleLightbox(false) }>✕</button>
-        <button className="Lightbox__nav" onClick={ (e) => { handleLightbox(true, this.props.num - 1); this.handleImageLoaded(false) } }>&lt;</button>
+      <div className="Lightbox" onClick={ (e) => { if (e.target === this._vNode.dom) { handleLightbox(null) } } }>
+        <button className="Lightbox__close" onClick={ () => handleLightbox(null) }>✕</button>
+        <button className="Lightbox__nav" onClick={ (e) => { handleLightbox(this.props.num - 1); this.handleImageLoaded(false) } }>&lt;</button>
         <div className="Lightbox__image">
           <div className="Lightbox__image--loading">Loading...</div>
           <img src={ imgData[0] + '.jpg' } className={ "Lightbox__image--active " + this.state.imageStatus } onLoad={ this.handleImageLoaded.bind(this) } alt={ imgData[1] } />
@@ -41,7 +41,7 @@ class Lightbox extends Component {
             <h5>{ imgData[1] }</h5>
           </div>
         </div>
-        <button className="Lightbox__nav" onClick={ (e) => { handleLightbox(true, this.props.num + 1); this.handleImageLoaded(false) } }>&gt;</button>
+        <button className="Lightbox__nav" onClick={ (e) => { handleLightbox(this.props.num + 1); this.handleImageLoaded(false) } }>&gt;</button>
       </div>
     )
   }

@@ -6,7 +6,7 @@ class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      'menus': MenuItems        
+      menus: MenuItems        
     }    
   }
 

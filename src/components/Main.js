@@ -8,12 +8,12 @@ class Main extends Component {
   constructor() {
     super();
     this.state = {
-      adminActive: false
+      adminActive: false,
+      notFound: false
     }
   }
 
-  render() {
- 
+  render() { 
     return (
       <div className="Main">
         { this.state.adminActive ? <AdminBar /> : null }

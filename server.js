@@ -1,14 +1,19 @@
-const express = require('express')
-const compression = require('compression')
-const app = express()
+const mongoose = require('mongoose');
 
-app.use(compression())
-app.use(express.static('build', { maxage: '7d' }))
+require('dotenv').config({ path: 'variables.env' });
 
-app.get('/:page', function (req, res) {
-  res.sendFile(__dirname + '/build/index.html')
-})
+// Connect to Mongo
+mongoose.connect(process.env.DATABASE);
+mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
+mongoose.connection.on('error', (err) => {
+  console.error(`🚫 → ${err.message}`);
+});
 
-app.listen(1337, function () {
-  console.log('Backend listening on port 1337!')
+// import models
+require('./server/models/Gallery');
+
+// Fire it up!
+const app = require('./server/app');
+app.listen(process.env.PORT, function () {
+  console.log('Backend listening on port ' + process.env.PORT )
 })

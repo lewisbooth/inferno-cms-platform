@@ -14,9 +14,11 @@ class Nav extends Component {
   }
 
   getNavImage() {
-    var navImage = this.context.router.location.pathname.replace('/', '-')
-    if (navImage === '-') navImage = '-home';
-    return `/images/nav-background${navImage}.jpg`;
+    const pages = ['/home', '/menus', '/gallery', '/jobs', '/contact']
+    var path = this.context.router.location.pathname
+    console.log( pages.indexOf(path))
+    const slug = pages.indexOf(path) > 0 ? path.replace('/', '') : 'home'
+    return `/images/nav-background-${slug}.jpg`;
   }
 
   handleImageLoaded() {
@@ -75,7 +77,7 @@ class Nav extends Component {
               <Link to='/'>Home</Link>
             </li>
             <li>
-              <Link to='/menu'>Menus</Link>
+              <Link to='/menus'>Menus</Link>
             </li>
             <li>
               <Link to='/gallery'>Gallery</Link>

@@ -4,13 +4,15 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
+    "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "inferno": "^3.7.1",
     "inferno-compat": "^3.7.1",
     "inferno-component": "^3.7.1",
-    "inferno-dnd-sorter": "^1.0.1",
+    "inferno-helmet": "^4.0.2",
     "inferno-router": "^3.7.1",
     "inferno-scripts": "4.2.0",
+    "mongoose": "^4.10.8",
     "npm-run-all": "^4.0.2"
   },
   "scripts": {
@@ -21,6 +23,6 @@
     "build": "npm run build-css && inferno-scripts build",
     "test": "inferno-scripts test --env=jsdom",
     "eject": "inferno-scripts eject",
-    "server": "npm run build && nodemon server.js"
+    "server": "nodemon server.js"
   }
 }

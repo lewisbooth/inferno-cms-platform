@@ -6,17 +6,18 @@
   width 100%
   height 100vh
   background-color rgba(30, 30, 30, 0.8)
-  color #fff
+  color $whitetext
   z-index 9
   display flex
   align-items center
   justify-content center
   flex-wrap wrap
+  overflow hidden
 
   &__nav
     padding 80px 40px
     font-size 3em
-    color #fff
+    color $whitetext
     background none
     opacity 0.5
     transition opacity 0.5s
@@ -31,7 +32,7 @@
     width 40px
     height 40px
     background-color $darkgrey
-    color #fff
+    color $whitetext
     font-size 1.5em
     z-index 10
     display flex
@@ -47,7 +48,6 @@
     background-color $darkgrey
     border-radius 10px
     overflow hidden
-    width 1000px
     position relative
 
     &--loading
@@ -58,12 +58,12 @@
       color #666
 
     &--active
-      width 100%
-      height 600px
       transition opacity .3s
       display block
       position relative
       z-index 11
+      max-width 75vw
+      max-height 85vh
 
       &.loading 
         opacity 0

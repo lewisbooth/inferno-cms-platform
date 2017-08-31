@@ -1,12 +1,11 @@
 import Inferno from 'inferno';
-import { Router, Route, IndexRoute } from 'inferno-router';
+import { Router, Route, IndexRoute, Redirect } from 'inferno-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 import Main from './components/Main';
 import Home from './components/Home';
 import Contact from './components/Contact';
 import Gallery from './components/Gallery';
 import Menus from './components/Menus';
-import MenuSection from './components/MenuSection';
 import './styles.css';
 
 const browserHistory = createBrowserHistory();
@@ -15,11 +14,10 @@ const routes = (
   <Router history={ browserHistory }>
     <Route component={ Main }>
         <IndexRoute component={ Home }/>
-        <Route path="menu" component={ Menus }>
-          <Route path="menu/:menu" component={ MenuSection }/>
-        </Route>
+        <Route path="menus" component={ Menus }/>
         <Route path="gallery" component={ Gallery }/>
         <Route path="contact" component={ Contact }/>
+        <Route path="*" component={ Home }/> 
     </Route>
   </Router>
 );
