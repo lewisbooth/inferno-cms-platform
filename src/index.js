@@ -1,5 +1,5 @@
 import Inferno from 'inferno';
-import { Router, Route, IndexRoute, Redirect } from 'inferno-router';
+import { Router, Route, IndexRoute } from 'inferno-router';
 import createBrowserHistory from 'history/createBrowserHistory';
 import Main from './components/Main';
 import Home from './components/Home';

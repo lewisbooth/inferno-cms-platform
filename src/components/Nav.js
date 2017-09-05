@@ -16,7 +16,6 @@ class Nav extends Component {
   getNavImage() {
     const pages = ['/home', '/menus', '/gallery', '/jobs', '/contact']
     var path = this.context.router.location.pathname
-    console.log( pages.indexOf(path))
     const slug = pages.indexOf(path) > 0 ? path.replace('/', '') : 'home'
     return `/images/nav-background-${slug}.jpg`;
   }

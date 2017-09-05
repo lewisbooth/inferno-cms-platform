@@ -1,5 +1,5 @@
 
-.EditItem
+.GalleryAddItem
   position fixed
   top 0
   left 0
@@ -37,20 +37,11 @@
     border-radius 10px
     overflow hidden
     position relative
-    display flex
-    flex-direction row
-    align-items center
 
-    &--image
-      z-index 11
-      max-height 500px
-      max-width 70vw
-
-    &--info
+    &--form
       padding 50px 30px
-      width 250px
+      height 100%
       align-self stretch
-      border-left 1px solid $orange
 
       &--title
         font-size 2em
@@ -70,11 +61,15 @@
         letter-spacing 0.1em
         margin-bottom 5px
 
-      input
+
+      input[type=file]
+        margin-bottom 30px
+
+      input[type=text]
         box-sizing border-box
         width 100%
         margin-bottom 30px
-        background-color #333
+        background-color $darkgreyhighlight
         border none 
         border-bottom 1px solid $orange
         font-size 1em

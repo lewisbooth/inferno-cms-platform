@@ -13,7 +13,8 @@
     "inferno-router": "^3.7.1",
     "inferno-scripts": "4.2.0",
     "mongoose": "^4.10.8",
-    "npm-run-all": "^4.0.2"
+    "npm-run-all": "^4.0.2",
+    "sharp": "^0.18.2"
   },
   "scripts": {
     "build-css": "stylus src/styles/styles.styl -o src/styles.css",

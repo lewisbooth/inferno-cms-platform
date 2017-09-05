@@ -27,7 +27,7 @@ class Lightbox extends Component {
   }
 
   render() {    
-    const handleLightbox = this.props.handleLightbox;
+    const handleLightbox = this.props.handleLightbox
     const imgData = this.props.imgData
     return(
       // Close lightbox if user clicks on dark area, but not on the image/caption
@@ -36,9 +36,9 @@ class Lightbox extends Component {
         <button className="Lightbox__nav" onClick={ (e) => { handleLightbox(this.props.num - 1); this.handleImageLoaded(false) } }>&lt;</button>
         <div className="Lightbox__image">
           <div className="Lightbox__image--loading">Loading...</div>
-          <img src={ imgData[0] + '.jpg' } className={ "Lightbox__image--active " + this.state.imageStatus } onLoad={ this.handleImageLoaded.bind(this) } alt={ imgData[1] } />
+          <img src={ '/images/gallery/full-size/' + imgData.slug + '.jpg' } className={ "Lightbox__image--active " + this.state.imageStatus } onLoad={ this.handleImageLoaded.bind(this) } alt={ imgData.description } />
           <div className="Lightbox__image--caption">
-            <h5>{ imgData[1] }</h5>
+            <h5>{ imgData.description }</h5>
           </div>
         </div>
         <button className="Lightbox__nav" onClick={ (e) => { handleLightbox(this.props.num + 1); this.handleImageLoaded(false) } }>&gt;</button>

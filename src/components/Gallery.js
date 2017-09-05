@@ -1,63 +1,66 @@
 import Component from 'inferno-component';
 import GalleryImage from './GalleryImage';
+import GalleryEditItem from './GalleryEditItem';
+import GalleryAddItem from './GalleryAddItem';
 import Lightbox from './Lightbox';
-import EditItem from './EditItem';
 import axios from 'axios';
 
 class Gallery extends Component {
 
   constructor(props) {
     super(props);
+    this.galleryApi = 'http://localhost:1337/api/gallery'
     this.removeItem = this.removeItem.bind(this);
     this.handleLightbox = this.handleLightbox.bind(this);
     this.state = {
       galleryItems: [],
       lightbox: null,
       editItem: null,
+      addItem: null,
       dragging: null
     }
   }
 
-  componentDidMount() {
-    axios.get('http://localhost:1337/api/gallery')
+  componentDidMount() {    
+    this.getGallery()
+  }
+  
+  getGallery() {    
+    axios.get(this.galleryApi)
          .then(res => {
-           console.log(res.data)
-           this.setState({ galleryItems: res.data.images })
-         })
-         .catch(err => {
-           console.log(err)
-         })
+            if (typeof(res.data.images) !== undefined) {
+              this.setState({ galleryItems: res.data.images })
+            } else {
+              this.setState({ galleryItems: [] })
+            }
+          })
+          .catch(err => {
+            console.log(err)
+          })
+  }
+  
+  postGallery(newGalleryItems) {    
+    axios.post(this.galleryApi, newGalleryItems)
+         .then(res => {
+            if (typeof(res.data.images) !== undefined) {
+              this.setState({ galleryItems: res.data.images })
+            } else {
+              this.setState({ galleryItems: [] })
+            }
+          })
+          .catch(err => {
+            console.log(err)
+          })
   }
 
   removeItem(index) {
     const { galleryItems } = this.state
     galleryItems.splice(index, 1)
-    axios.post('http://localhost:1337/api/gallery', galleryItems)
-         .then(res => {
-           console.log('Gallery updated successfully')
-           this.setState({ galleryItems: res.data.images })
-         })
-         .catch(err => {
-           console.log(err)
-         })
+    this.postGallery(galleryItems)
   }
   
-  addItem(num = 1) {
-    const newItem = {
-      tags: ['bar', 'drinks'],
-      slug: 'orange-tree-alcohol-selection',
-      description: 'Alcohol Selection'
-    }
-    let { galleryItems } = this.state
-    let newGalleryItems = galleryItems.concat(newItem)
-    axios.post('http://localhost:1337/api/gallery', newGalleryItems)
-         .then(res => {
-           console.log('Gallery updated successfully')
-           this.setState({ galleryItems: res.data.images })
-         })
-         .catch(err => {
-           console.log(err)
-         })
+  addItem(enabled = true) {
+    this.setState({ addItem: enabled })
   }
 
   editItem(index) {
@@ -66,8 +69,8 @@ class Gallery extends Component {
 
   handleLightbox(index) {
     // Loop around start/end of array
-    if (index >= this.state.galleryItemsLength) { index = 0 }
-    if (index < 0) { index = this.state.galleryItemsLength - 1 }
+    if (index >= this.state.galleryItems.length) { index = 0 }
+    if (index < 0) { index = this.state.galleryItems.length - 1 }
     this.setState({ lightbox: index })
   }
 
@@ -92,13 +95,14 @@ class Gallery extends Component {
 
   handleDrop(e, dropIndex) {
     const { galleryItems, dragging } = this.state;
+    if (dragging === dropIndex) return;
     const draggedItem = galleryItems.splice(dragging, 1);
     galleryItems.splice(dropIndex, 0, draggedItem[0]);
     this.setState({ 
-      galleryItems,
       dragging: null 
     })
     e.target.classList.remove('drag-over')
+    this.postGallery(galleryItems)
   }  
 
   render() {
@@ -107,6 +111,7 @@ class Gallery extends Component {
         <GalleryImage key={ i }
                       num={ i }
                       slug={ entry.slug }
+                      alt={ entry.description }
                       delete={ this.removeItem.bind(this) }
                       editItem={ this.editItem.bind(this) }
                       handleLightbox={ this.handleLightbox.bind(this) }
@@ -125,15 +130,18 @@ class Gallery extends Component {
             <Lightbox imgData={ this.state.galleryItems[this.state.lightbox] } handleLightbox={ this.handleLightbox.bind(this) } num={ this.state.lightbox } /> 
           : null }        
           { this.state.editItem !== null ? 
-            <EditItem imgData={ this.state.galleryItems[this.state.editItem] } editItem={ this.editItem.bind(this) } num={ this.state.editItem } /> 
+            <GalleryEditItem imgData={ this.state.galleryItems[this.state.editItem] } editItem={ this.editItem.bind(this) } num={ this.state.editItem } /> 
+          : null }
+          { this.state.addItem !== null ? 
+            <GalleryAddItem imgData={ this.state.galleryItems[this.state.addItem] } addItem={ this.addItem.bind(this) } num={ this.state.addItem } /> 
           : null }
           <div className="Gallery__items">
             { galleryItems }
             <div className="Gallery__items--block">
-              <button onClick={ () => this.addItem(1) } className='Gallery__items--block--add-item'>
+              <button onClick={ () => this.addItem() } className='Gallery__items--block--add-item'>
                 <div className="Gallery__items--block--add-item--inner">
                   <span className='Gallery__items--block--add-item--inner--plus'>+</span><br />
-                  <span className='Gallery__items--block--add-item--inner--text'>Add Item</span>
+                  <span className='Gallery__items--block--add-item--inner--text'>Add Image</span>
                 </div>
               </button>
             </div>
