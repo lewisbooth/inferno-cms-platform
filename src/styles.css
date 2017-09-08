@@ -72,10 +72,12 @@ ul {
 .AdminBar {
   position: fixed;
   bottom: 0;
-  padding: 15px 20px;
-  width: 100vw;
-  background-color: #000;
-  border-top: 1px solid #df7d32;
+  right: 50px;
+  padding: 10px 20px;
+  width: 500px;
+  background-color: #df7d32;
+  border: 3px solid #b05c1c;
+  border-bottom: none;
   z-index: 999;
   display: flex;
   align-items: center;
@@ -84,9 +86,10 @@ ul {
   background-color: #df7d32;
   color: #fff;
   border: 1px solid #fff;
-  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
   display: flex;
   align-items: center;
+  padding: 5px 8px;
+  font-size: 1em;
 }
 .AdminBar button svg {
   height: 20px;
@@ -110,10 +113,49 @@ ul {
   background-color: #222;
   color: #eaeaea;
 }
+.Gallery h2 {
+  margin-right: -7px;
+}
+.Gallery__add {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  margin-top: -20px;
+}
+.Gallery__add--button {
+  transition: all 0.3s;
+  background-color: #df7d32;
+  padding: 15px 20px 10px 20px;
+}
+.Gallery__add--button > div {
+  color: #eaeaea;
+  font-size: 1.4em;
+}
+.Gallery__add--button:hover {
+  cursor: pointer;
+  background-color: #b05c1c;
+}
+.Gallery__add--button--inner {
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+}
+.Gallery__add--button--inner--plus {
+  font-size: 3em;
+  margin-right: 10px;
+  margin-top: -30px;
+  height: 30px;
+}
+.Gallery__add--button--inner--text {
+  font-size: 1.2em;
+  letter-spacing: 0.2em;
+}
 .Gallery__items {
   display: flex;
   align-items: space-around;
   flex-wrap: wrap;
+  width: 100%;
 }
 .Gallery__items--block {
   position: relative;
@@ -202,7 +244,7 @@ ul {
   background-color: #1e1e1e;
   z-index: 2;
   opacity: 1;
-  color: #fff;
+  color: #eaeaea;
 }
 .Gallery__items--block--icons--container button:hover {
   cursor: pointer;
@@ -225,55 +267,21 @@ ul {
 }
 .Gallery__items--block--icons--container div {
   background-color: rgba(30,30,30,0.75);
-  color: #fff;
+  color: #eaeaea;
   font-size: 0.8em;
   position: absolute;
   top: 0;
   right: 0;
-  padding: 7px 10px;
+  height: 30px;
+  padding: 0 10px;
   white-space: nowrap;
   text-align: center;
   opacity: 0;
   pointer-events: none;
   transition: all 0.3s ease-in-out;
-}
-.Gallery__items--block--add-item {
-  padding: 50%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 100%;
-  box-sizing: border-box;
-  transition: all 0.3s;
-  background-color: #222;
-  -webkit-box-shadow: inset 0px 0px 0px 2px #3c3c3c;
-  -moz-box-shadow: inset 0px 0px 0px 2px #3c3c3c;
-  box-shadow: inset 0px 0px 0px 2px #3c3c3c;
-}
-.Gallery__items--block--add-item > div {
-  color: #777;
-  font-size: 1.4em;
-}
-.Gallery__items--block--add-item:hover {
-  cursor: pointer;
-  background-color: #333;
-  -webkit-box-shadow: inset 0px 0px 0px 2px #df7d32;
-  -moz-box-shadow: inset 0px 0px 0px 2px #df7d32;
-  box-shadow: inset 0px 0px 0px 2px #df7d32;
-}
-.Gallery__items--block--add-item:hover > div {
-  color: #aaa;
-}
-.Gallery__items--block--add-item--inner {
-  position: absolute;
-  color: #aaa;
-  transition: all 0.3s;
-}
-.Gallery__items--block--add-item--inner--plus {
-  font-size: 5em;
-}
-.Gallery__items--block--add-item--inner--text {
-  font-size: 1.2em;
+  justify-content: center;
 }
 .GalleryAddItem {
   position: fixed;
@@ -281,7 +289,7 @@ ul {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(30,30,30,0.8);
+  background-color: rgba(0,0,0,0.8);
   color: #eaeaea;
   z-index: 9;
   display: flex;
@@ -318,15 +326,16 @@ ul {
   padding: 50px 30px;
   height: 100%;
   align-self: stretch;
+  font-size: 1.1em;
 }
 .GalleryAddItem__modal--form--title {
-  font-size: 2em;
+  font-size: 2.4em;
   text-align: left;
   margin-top: 0;
   margin-bottom: 30px;
 }
 .GalleryAddItem__modal--form p {
-  font-size: 0.8em;
+  font-size: 1em;
   color: #888;
   margin-bottom: 10px;
   line-height: 1.2em;
@@ -344,7 +353,7 @@ ul {
   box-sizing: border-box;
   width: 100%;
   margin-bottom: 30px;
-  background-color: #444;
+  background-color: #333;
   border: none;
   border-bottom: 1px solid #df7d32;
   font-size: 1em;
@@ -354,6 +363,29 @@ ul {
 .GalleryAddItem__modal--form input[type=text]:focus {
   outline: none;
   background-color: #444;
+}
+.GalleryAddItem__modal--form--tags {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  margin-bottom: 30px;
+}
+.GalleryAddItem__modal--form--tags--checkbox {
+  background-color: #444;
+  color: #eaeaea;
+  padding: 9px 15px 7px 15px;
+  border-radius: 15px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  user-select: none !important;
+}
+.GalleryAddItem__modal--form--tags--checkbox:hover {
+  background-color: #b05c1c;
+}
+.GalleryAddItem__modal--form--tags--checkbox.checked {
+  background-color: #df7d32;
 }
 .GalleryAddItem__modal--form button[type=reset] {
   background-color: #444;
@@ -378,7 +410,7 @@ ul {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(30,30,30,0.8);
+  background-color: rgba(0,0,0,0.8);
   color: #eaeaea;
   z-index: 9;
   display: flex;
@@ -419,60 +451,89 @@ ul {
   max-height: 500px;
   max-width: 70vw;
 }
-.GalleryEditItem__modal--info {
+.GalleryEditItem__modal--form {
   padding: 50px 30px;
-  width: 250px;
+  width: 350px;
   align-self: stretch;
   border-left: 1px solid #df7d32;
+  font-size: 1.1em;
 }
-.GalleryEditItem__modal--info--title {
-  font-size: 2em;
+.GalleryEditItem__modal--form--title {
+  font-size: 2.4em;
   text-align: left;
   margin-top: 0;
   margin-bottom: 30px;
 }
-.GalleryEditItem__modal--info p {
-  font-size: 0.8em;
+.GalleryEditItem__modal--form p {
+  font-size: 1em;
   color: #888;
   margin-bottom: 10px;
   line-height: 1.2em;
 }
-.GalleryEditItem__modal--info label {
+.GalleryEditItem__modal--form label {
   display: block;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 5px;
 }
-.GalleryEditItem__modal--info input {
+.GalleryEditItem__modal--form input {
   box-sizing: border-box;
   width: 100%;
   margin-bottom: 30px;
-  background-color: #444;
+  background-color: #333;
   border: none;
   border-bottom: 1px solid #df7d32;
   font-size: 1em;
   padding: 5px 7px;
   color: #eaeaea;
 }
-.GalleryEditItem__modal--info input:focus {
+.GalleryEditItem__modal--form input::placeholder {
+  color: #eaeaea;
+}
+.GalleryEditItem__modal--form input:focus {
   outline: none;
   background-color: #444;
 }
-.GalleryEditItem__modal--info button[type=reset] {
+.GalleryEditItem__modal--form--tags {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.GalleryEditItem__modal--form--tags--checkbox {
+  background-color: #444;
+  color: #eaeaea;
+  padding: 9px 15px 7px 15px;
+  border-radius: 15px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  user-select: none !important;
+}
+.GalleryEditItem__modal--form--tags--checkbox:hover {
+  background-color: #b05c1c;
+}
+.GalleryEditItem__modal--form--tags--checkbox.checked {
+  background-color: #df7d32;
+}
+.GalleryEditItem__modal--form button[type=reset] {
   background-color: #444;
   color: #eaeaea;
   margin-right: 20px;
   padding: 10px 13px 8px 13px;
 }
-.GalleryEditItem__modal--info button[type=reset]:hover {
+.GalleryEditItem__modal--form button[type=reset]:hover {
   background-color: #666;
 }
-.GalleryEditItem__modal--info button[type=submit] {
+.GalleryEditItem__modal--form button[type=submit] {
   background-color: #df7d32;
   color: #eaeaea;
   padding: 10px 13px 8px 13px;
 }
-.GalleryEditItem__modal--info button[type=submit]:hover {
+.GalleryEditItem__modal--form button[type=submit]:hover {
   background-color: #b05c1c;
 }
 .Lightbox {
@@ -481,7 +542,7 @@ ul {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(30,30,30,0.8);
+  background-color: rgba(0,0,0,0.8);
   color: #eaeaea;
   z-index: 9;
   display: flex;

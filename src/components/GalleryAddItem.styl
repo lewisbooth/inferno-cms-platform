@@ -5,7 +5,7 @@
   left 0
   width 100%
   height 100vh
-  background-color rgba(30, 30, 30, 0.8)
+  background-color rgba(0, 0, 0, 0.8)
   color $whitetext
   z-index 9
   display flex
@@ -42,15 +42,16 @@
       padding 50px 30px
       height 100%
       align-self stretch
+      font-size 1.1em
 
       &--title
-        font-size 2em
+        font-size 2.4em
         text-align left
         margin-top 0
         margin-bottom 30px
 
       p
-        font-size 0.8em
+        font-size 1em
         color #888
         margin-bottom 10px
         line-height 1.2em
@@ -61,7 +62,6 @@
         letter-spacing 0.1em
         margin-bottom 5px
 
-
       input[type=file]
         margin-bottom 30px
 
@@ -69,7 +69,7 @@
         box-sizing border-box
         width 100%
         margin-bottom 30px
-        background-color $darkgreyhighlight
+        background-color #333
         border none 
         border-bottom 1px solid $orange
         font-size 1em
@@ -78,10 +78,33 @@
 
         &:focus
           outline none
-          background-color #444
+          background-color $darkgreyhighlight
+
+      &--tags
+        display flex
+        flex-direction row
+        align-items center 
+        justify-content left
+        margin-bottom 30px
+
+        &--checkbox
+          background-color $darkgreyhighlight
+          color $whitetext
+          padding 9px 15px 7px 15px
+          border-radius 15px
+          margin-right 10px
+          margin-bottom 10px
+          cursor pointer
+          user-select none !important
+
+          &:hover
+            background-color $darkorange
+
+          &.checked
+            background-color $orange
 
       button[type=reset]
-        background-color #444
+        background-color $darkgreyhighlight
         color $whitetext
         margin-right 20px
         padding 10px 13px 8px 13px

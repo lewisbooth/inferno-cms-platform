@@ -8,15 +8,24 @@ class Main extends Component {
   constructor() {
     super();
     this.state = {
-      adminActive: false,
+      loggedIn: false,
+      editMode: false,
       notFound: false
     }
+  }
+
+  toggleEdit() {
+    this.setState({
+      adminActive: !this.state.adminActive
+    })
   }
 
   render() { 
     return (
       <div className="Main">
-        { this.state.adminActive ? <AdminBar /> : null }
+        {this.state.loggedin ? 
+          <AdminBar editMode={ this.state.editMode } toggleEdit={ this.toggleEdit.bind(this) } /> : null
+        }
         <Nav /> 
         { this.props.children }
         <Footer />

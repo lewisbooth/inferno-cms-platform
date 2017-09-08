@@ -17,7 +17,8 @@ class Gallery extends Component {
       lightbox: null,
       editItem: null,
       addItem: null,
-      dragging: null
+      dragging: null,
+      filter: 'drinks'
     }
   }
 
@@ -60,10 +61,12 @@ class Gallery extends Component {
   }
   
   addItem(enabled = true) {
+    this.getGallery()
     this.setState({ addItem: enabled })
   }
-
+  
   editItem(index) {
+    this.getGallery()
     this.setState({ editItem: index })
   }
 
@@ -106,7 +109,14 @@ class Gallery extends Component {
   }  
 
   render() {
-    const galleryItems = this.state.galleryItems.map((entry, i) => {
+    const filteredGallery = this.state.galleryItems.filter(entry => {
+      if (this.state.filter === null) { 
+        return true
+      } else {
+        return entry.tags.includes(this.state.filter)
+      }
+    })
+    const galleryItems = filteredGallery.map((entry, i) => {
       return ( 
         <GalleryImage key={ i }
                       num={ i }
@@ -135,16 +145,16 @@ class Gallery extends Component {
           { this.state.addItem !== null ? 
             <GalleryAddItem imgData={ this.state.galleryItems[this.state.addItem] } addItem={ this.addItem.bind(this) } num={ this.state.addItem } /> 
           : null }
+          <div className="Gallery__add">
+            <button onClick={ () => this.addItem() } className='Gallery__add--button'>
+              <div className="Gallery__add--button--inner">
+                <div className='Gallery__add--button--inner--plus'>+ </div>
+                <div className='Gallery__add--button--inner--text'>Add Image</div>
+              </div>
+            </button>
+          </div>
           <div className="Gallery__items">
-            { galleryItems }
-            <div className="Gallery__items--block">
-              <button onClick={ () => this.addItem() } className='Gallery__items--block--add-item'>
-                <div className="Gallery__items--block--add-item--inner">
-                  <span className='Gallery__items--block--add-item--inner--plus'>+</span><br />
-                  <span className='Gallery__items--block--add-item--inner--text'>Add Image</span>
-                </div>
-              </button>
-            </div>
+            { galleryItems }            
           </div>
         </div>
       </div>
