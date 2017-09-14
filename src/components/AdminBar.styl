@@ -1,24 +1,26 @@
 .AdminBar
   position fixed
   bottom 0
-  right 50px
   padding 10px 20px
-  width 500px
+  width 100%
   background-color $orange
-  border 3px solid $darkorange
+  border-top 3px solid $darkorange
   border-bottom none
+  box-sizing border-box
   z-index 999
   display flex
+  flex-direction row
+  justify-content flex-end
   align-items center
 
   button
     background-color $orange
     color white
-    border 1px solid white
+    border 1px solid $orange
     display flex
     align-items center
-    padding 5px 8px
     font-size 1em
+    transition all .3s
 
     svg
       height 20px
@@ -31,3 +33,18 @@
 
       svg
         fill $darkorange
+
+  // &__toggle-edit
+  //   align-self right
+    
+  &.editing
+    background-color $green
+    border-color $darkgreen
+
+    button
+      background-color $green
+      border 1px solid $whitetext
+
+      &:hover
+        background-color $whitetext
+        color $green

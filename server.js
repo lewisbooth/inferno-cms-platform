@@ -7,10 +7,10 @@ mongoose.Promise = global.Promise;
 
 // Connect to Mongo
 mongoose.connect(process.env.DATABASE)
-        .then(
-          () => {console.log('✔ Connected to MongoDB')},
-          err => {console.error(`🔥 🚫 💀  ${err.message} 💀 🚫 🔥`)}
-        )
+  .then(
+    () => {console.log('✔ Connected to MongoDB')},
+    err => {console.error(`🔥 🚫 💀  ${err.message} 💀 🚫 🔥`)}
+  )
 
 // import models
 require('./server/models/Gallery');

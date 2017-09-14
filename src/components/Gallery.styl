@@ -14,8 +14,8 @@
 
     &--button
       transition all .3s
-      background-color $orange
-      padding 15px 20px 10px 20px
+      background-color $green
+      padding 15px 20px 12px 20px
 
       & > div
         color $whitetext
@@ -23,7 +23,7 @@
 
       &:hover
         cursor pointer
-        background-color $darkorange
+        background-color $darkgreen
 
       &--inner
         transition all .3s
@@ -31,14 +31,14 @@
         align-items center
         
         &--plus
-          font-size 3em
+          font-size 3.1em
           margin-right 10px
           margin-top -30px
           height 30px
 
         &--text
           font-size 1.2em
-          letter-spacing 0.2em
+          font-family $nexabold
 
   &__items
     display flex
@@ -51,18 +51,18 @@
       float left
       width 300px
       height 300px
-      background-color $whitetext
+      background-color $darkgrey
       transition all .3s
       overflow hidden
 
       &:hover
-        cursor pointer
+        cursor zoom-in
 
         & > div
           opacity 1
 
       &--image
-        transform scale(1) 
+        transform scale(1)
         transition all .5s
 
         &.drag-over
@@ -144,6 +144,7 @@
 
           &--remove-item
             padding 3px 0 0 2px
+            background-color firebrick
 
             &:hover
               background-color firebrick
@@ -152,7 +153,7 @@
             padding 3px 0 0 2px
 
             &:hover
-              background-color green
+              background-color $green
 
           & div
             background-color rgba(30,30,30,0.75)

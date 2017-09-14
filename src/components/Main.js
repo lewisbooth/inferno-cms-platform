@@ -8,8 +8,8 @@ class Main extends Component {
   constructor() {
     super();
     this.state = {
-      loggedIn: false,
-      editMode: false,
+      loggedIn: true,
+      editMode: true,
       notFound: false
     }
   }
@@ -20,10 +20,11 @@ class Main extends Component {
     })
   }
 
-  render() { 
+  render() {
+    const editClass = this.state.editMode ? 'editing' : '' 
     return (
-      <div className="Main">
-        {this.state.loggedin ? 
+      <div className={ 'Main' + editClass }>
+        {this.state.loggedIn ? 
           <AdminBar editMode={ this.state.editMode } toggleEdit={ this.toggleEdit.bind(this) } /> : null
         }
         <Nav /> 
@@ -33,6 +34,5 @@ class Main extends Component {
     );
   }
 }
-
 
 export default Main;

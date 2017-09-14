@@ -16,9 +16,22 @@ button
   cursor pointer
   outline none
   border none
-  padding 10px
+  border-radius 5px
+  padding 10px 15px
   text-transform uppercase
-  letter-spacing 0.1em
+  letter-spacing 0.2em
+  transition all .3s
+
+.Button__main
+  background-color $orange
+  font-family $nexabold
+  -webkit-box-shadow 3px 4px 22px -4px rgba(0,0,0,0.75)
+  -moz-box-shadow 3px 4px 22px -4px rgba(0,0,0,0.75)
+  box-shadow 3px 4px 22px -4px rgba(0,0,0,0.75)
+
+  &:hover
+    background-color $darkorange
+
 
 h2
   text-transform uppercase
@@ -55,6 +68,6 @@ ul
   padding 12px 50px 80px 50px
 
   & .page-container
-    max-width 1200px
+    max-width 1500px
     margin 0 auto
 

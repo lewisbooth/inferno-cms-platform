@@ -1,24 +1,25 @@
-import Component from 'inferno-component';
-import GalleryImage from './GalleryImage';
-import GalleryEditItem from './GalleryEditItem';
-import GalleryAddItem from './GalleryAddItem';
-import Lightbox from './Lightbox';
-import axios from 'axios';
+import Component from 'inferno-component'
+import GalleryImage from './GalleryImage'
+import GalleryEditItem from './GalleryEditItem'
+import GalleryAddItem from './GalleryAddItem'
+import Lightbox from './Lightbox'
+import axios from 'axios'
 
 class Gallery extends Component {
 
   constructor(props) {
     super(props);
-    this.galleryApi = 'http://localhost:1337/api/gallery'
+    this.galleryApi = 'http://192.168.0.10:1337/api/gallery'
     this.removeItem = this.removeItem.bind(this);
     this.handleLightbox = this.handleLightbox.bind(this);
     this.state = {
       galleryItems: [],
       lightbox: null,
-      editItem: null,
+      editItem: null,     
       addItem: null,
       dragging: null,
-      filter: 'drinks'
+      filters: ['food', 'drinks', 'restaurant', 'decor', 'service'],
+      currentFilter: null
     }
   }
 
@@ -52,6 +53,13 @@ class Gallery extends Component {
           .catch(err => {
             console.log(err)
           })
+  }
+
+  filterGallery() {
+    return this.state.currentFilter ? 
+      this.state.galleryItems.filter(entry => {
+        return entry.tags.includes(this.state.currentFilter)
+      }) : this.state.galleryItems
   }
 
   removeItem(index) {
@@ -108,15 +116,8 @@ class Gallery extends Component {
     this.postGallery(galleryItems)
   }  
 
-  render() {
-    const filteredGallery = this.state.galleryItems.filter(entry => {
-      if (this.state.filter === null) { 
-        return true
-      } else {
-        return entry.tags.includes(this.state.filter)
-      }
-    })
-    const galleryItems = filteredGallery.map((entry, i) => {
+  render() {    
+    const galleryItems = this.filterGallery().map((entry, i) => {
       return ( 
         <GalleryImage key={ i }
                       num={ i }
@@ -146,7 +147,7 @@ class Gallery extends Component {
             <GalleryAddItem imgData={ this.state.galleryItems[this.state.addItem] } addItem={ this.addItem.bind(this) } num={ this.state.addItem } /> 
           : null }
           <div className="Gallery__add">
-            <button onClick={ () => this.addItem() } className='Gallery__add--button'>
+            <button onClick={ () => this.addItem() } className='Button__main Gallery__add--button'>
               <div className="Gallery__add--button--inner">
                 <div className='Gallery__add--button--inner--plus'>+ </div>
                 <div className='Gallery__add--button--inner--text'>Add Image</div>

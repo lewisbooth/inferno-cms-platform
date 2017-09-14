@@ -62,7 +62,7 @@ class Nav extends Component {
             <img src="/images/orange-tree-logo.jpg" alt="Orange Tree Logo" className="Nav__main-logo"/>
           </IndexLink>
           <div className="Nav__cta">
-            <button className="Nav__cta--book-table">Book online</button>
+            <button className="Button__main Nav__cta--book-table">Book online</button>
             <p className='Nav__cta--divide'>or call us on</p>
             <a href='tel:01782719222'>
               <div className="Nav__cta--phone">

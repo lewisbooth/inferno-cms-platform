@@ -62,7 +62,7 @@ class GalleryAddItem extends Component {
             <label for="photo">
             Choose a file
             </label>
-            <input name="photo" type="file" accept="image/*" className="GalleryAddItem__modal--form--upload--file"/>
+            <input name="photo" type="file" accept="image/*" required className="GalleryAddItem__modal--form--upload--file"/>
             <label htmlFor="description">Description</label>
             <p><em>Appears under the image</em></p>
             <input type="text" name="description" required />

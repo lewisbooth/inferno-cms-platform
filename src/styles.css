@@ -29,9 +29,21 @@ button {
   cursor: pointer;
   outline: none;
   border: none;
-  padding: 10px;
+  border-radius: 5px;
+  padding: 10px 15px;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
+  transition: all 0.3s;
+}
+.Button__main {
+  background-color: #f18825;
+  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
+  -webkit-box-shadow: 3px 4px 22px -4px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 4px 22px -4px rgba(0,0,0,0.75);
+  box-shadow: 3px 4px 22px -4px rgba(0,0,0,0.75);
+}
+.Button__main:hover {
+  background-color: #c7701f;
 }
 h2 {
   text-transform: uppercase;
@@ -55,41 +67,43 @@ ul {
   list-style: none;
 }
 ::-moz-selection {
-  background: #df7d32;
+  background: #f18825;
   color: #eaeaea;
 }
 ::selection {
-  background: #df7d32;
+  background: #f18825;
   color: #eaeaea;
 }
 .page {
   padding: 12px 50px 80px 50px;
 }
 .page .page-container {
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto;
 }
 .AdminBar {
   position: fixed;
   bottom: 0;
-  right: 50px;
   padding: 10px 20px;
-  width: 500px;
-  background-color: #df7d32;
-  border: 3px solid #b05c1c;
+  width: 100%;
+  background-color: #f18825;
+  border-top: 3px solid #c7701f;
   border-bottom: none;
+  box-sizing: border-box;
   z-index: 999;
   display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
 }
 .AdminBar button {
-  background-color: #df7d32;
+  background-color: #f18825;
   color: #fff;
-  border: 1px solid #fff;
+  border: 1px solid #f18825;
   display: flex;
   align-items: center;
-  padding: 5px 8px;
   font-size: 1em;
+  transition: all 0.3s;
 }
 .AdminBar button svg {
   height: 20px;
@@ -98,10 +112,22 @@ ul {
 }
 .AdminBar button:hover {
   background-color: #fff;
-  color: #b05c1c;
+  color: #c7701f;
 }
 .AdminBar button:hover svg {
-  fill: #b05c1c;
+  fill: #c7701f;
+}
+.AdminBar.editing {
+  background-color: #54b238;
+  border-color: #287f28;
+}
+.AdminBar.editing button {
+  background-color: #54b238;
+  border: 1px solid #eaeaea;
+}
+.AdminBar.editing button:hover {
+  background-color: #eaeaea;
+  color: #54b238;
 }
 .Footer {
   background-color: #111;
@@ -125,8 +151,8 @@ ul {
 }
 .Gallery__add--button {
   transition: all 0.3s;
-  background-color: #df7d32;
-  padding: 15px 20px 10px 20px;
+  background-color: #54b238;
+  padding: 15px 20px 12px 20px;
 }
 .Gallery__add--button > div {
   color: #eaeaea;
@@ -134,7 +160,7 @@ ul {
 }
 .Gallery__add--button:hover {
   cursor: pointer;
-  background-color: #b05c1c;
+  background-color: #287f28;
 }
 .Gallery__add--button--inner {
   transition: all 0.3s;
@@ -142,14 +168,14 @@ ul {
   align-items: center;
 }
 .Gallery__add--button--inner--plus {
-  font-size: 3em;
+  font-size: 3.1em;
   margin-right: 10px;
   margin-top: -30px;
   height: 30px;
 }
 .Gallery__add--button--inner--text {
   font-size: 1.2em;
-  letter-spacing: 0.2em;
+  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
 }
 .Gallery__items {
   display: flex;
@@ -162,12 +188,12 @@ ul {
   float: left;
   width: 300px;
   height: 300px;
-  background-color: #eaeaea;
+  background-color: #222;
   transition: all 0.3s;
   overflow: hidden;
 }
 .Gallery__items--block:hover {
-  cursor: pointer;
+  cursor: zoom-in;
 }
 .Gallery__items--block:hover > div {
   opacity: 1;
@@ -255,6 +281,7 @@ ul {
 }
 .Gallery__items--block--icons--container--remove-item {
   padding: 3px 0 0 2px;
+  background-color: #b22222;
 }
 .Gallery__items--block--icons--container--remove-item:hover {
   background-color: #b22222;
@@ -263,7 +290,7 @@ ul {
   padding: 3px 0 0 2px;
 }
 .Gallery__items--block--icons--container--edit-item:hover {
-  background-color: #008000;
+  background-color: #54b238;
 }
 .Gallery__items--block--icons--container div {
   background-color: rgba(30,30,30,0.75);
@@ -355,7 +382,7 @@ ul {
   margin-bottom: 30px;
   background-color: #333;
   border: none;
-  border-bottom: 1px solid #df7d32;
+  border-bottom: 1px solid #f18825;
   font-size: 1em;
   padding: 5px 7px;
   color: #eaeaea;
@@ -382,10 +409,10 @@ ul {
   user-select: none !important;
 }
 .GalleryAddItem__modal--form--tags--checkbox:hover {
-  background-color: #b05c1c;
+  background-color: #c7701f;
 }
 .GalleryAddItem__modal--form--tags--checkbox.checked {
-  background-color: #df7d32;
+  background-color: #f18825;
 }
 .GalleryAddItem__modal--form button[type=reset] {
   background-color: #444;
@@ -397,12 +424,12 @@ ul {
   background-color: #666;
 }
 .GalleryAddItem__modal--form button[type=submit] {
-  background-color: #df7d32;
+  background-color: #f18825;
   color: #eaeaea;
   padding: 10px 13px 8px 13px;
 }
 .GalleryAddItem__modal--form button[type=submit]:hover {
-  background-color: #b05c1c;
+  background-color: #c7701f;
 }
 .GalleryEditItem {
   position: fixed;
@@ -455,7 +482,7 @@ ul {
   padding: 50px 30px;
   width: 350px;
   align-self: stretch;
-  border-left: 1px solid #df7d32;
+  border-left: 1px solid #f18825;
   font-size: 1.1em;
 }
 .GalleryEditItem__modal--form--title {
@@ -482,7 +509,7 @@ ul {
   margin-bottom: 30px;
   background-color: #333;
   border: none;
-  border-bottom: 1px solid #df7d32;
+  border-bottom: 1px solid #f18825;
   font-size: 1em;
   padding: 5px 7px;
   color: #eaeaea;
@@ -514,10 +541,10 @@ ul {
   user-select: none !important;
 }
 .GalleryEditItem__modal--form--tags--checkbox:hover {
-  background-color: #b05c1c;
+  background-color: #c7701f;
 }
 .GalleryEditItem__modal--form--tags--checkbox.checked {
-  background-color: #df7d32;
+  background-color: #f18825;
 }
 .GalleryEditItem__modal--form button[type=reset] {
   background-color: #444;
@@ -529,12 +556,12 @@ ul {
   background-color: #666;
 }
 .GalleryEditItem__modal--form button[type=submit] {
-  background-color: #df7d32;
+  background-color: #f18825;
   color: #eaeaea;
   padding: 10px 13px 8px 13px;
 }
 .GalleryEditItem__modal--form button[type=submit]:hover {
-  background-color: #b05c1c;
+  background-color: #c7701f;
 }
 .Lightbox {
   position: fixed;
@@ -613,7 +640,7 @@ ul {
   background-color: #222;
   line-height: 0em;
   display: flex;
-  border-top: 1px solid #df7d32;
+  border-top: 1px solid #f18825;
   text-align: center;
   padding: 30px 0;
 }
@@ -642,7 +669,7 @@ ul {
 .MenuSection__title {
   width: 100%;
   padding-bottom: 20px;
-  border-bottom: 1px solid #df7d32;
+  border-bottom: 1px solid #f18825;
   margin-bottom: 30px;
 }
 .MenuBlock {
@@ -667,7 +694,7 @@ ul {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding-bottom: 5px;
-  border-bottom: 1px solid #df7d32;
+  border-bottom: 1px solid #f18825;
 }
 .MenuBlock__description {
   font-size: 1em;
@@ -721,7 +748,7 @@ ul {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border-bottom: 1px solid #df7d32;
+  border-bottom: 1px solid #f18825;
   overflow: hidden;
   position: relative;
 }
@@ -750,31 +777,31 @@ ul {
   right: 50px;
 }
 .Nav__cta--book-table {
-  background-color: #df7d32;
   color: #eaeaea;
-  padding: 20px 20px 15px 20px;
-  font-size: 1em;
-  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
-}
-.Nav__cta--book-table:hover {
-  background-color: #b05c1c;
+  padding: 20px 25px 15px 25px;
+  font-size: 1.1em;
 }
 .Nav__cta--divide {
-  margin: 1.2em 0 1em 0;
+  margin: 1.2em 0 0.6em 0;
 }
 .Nav__cta--phone {
   letter-spacing: 0.1em;
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 .Nav__cta--phone--text {
-  font-size: 1.2em;
+  font-size: 1.4em;
   padding-top: 0.1em;
 }
 .Nav__cta--phone--icon {
   width: 20px;
   height: 20px;
   margin-right: 0.4em;
+}
+.Nav__cta--phone:hover {
+  text-decoration: underline;
 }
 .Nav__wrapper {
   z-index: 1;
