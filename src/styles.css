@@ -86,20 +86,22 @@ ul {
   bottom: 0;
   padding: 10px 20px;
   width: 100%;
+  color: #eaeaea;
   background-color: #f18825;
-  border-top: 3px solid #c7701f;
+  border-top: 2px solid #c7701f;
   border-bottom: none;
   box-sizing: border-box;
   z-index: 999;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+  transition: all 0.3s;
 }
 .AdminBar button {
   background-color: #f18825;
   color: #fff;
-  border: 1px solid #f18825;
+  border: 1px solid #eaeaea;
   display: flex;
   align-items: center;
   font-size: 1em;
@@ -128,6 +130,49 @@ ul {
 .AdminBar.editing button:hover {
   background-color: #eaeaea;
   color: #54b238;
+}
+.AdminBar__status {
+  display: flex;
+  align-self: stretch;
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+.AdminBar__status h4 {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 1.6em;
+  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
+}
+.AdminBar__status p {
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+}
+.AdminBar__profile {
+  display: flex;
+  align-self: stretch;
+}
+.AdminBar__profile--image {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  border: 2px solid #eaeaea;
+  margin-right: 20px;
+}
+.AdminBar__profile--greeting {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: #eaeaea;
+}
+.AdminBar__profile--greeting h4 {
+  font-size: 1.5em;
 }
 .Footer {
   background-color: #111;
@@ -220,7 +265,7 @@ ul {
 .Gallery__items--block--image.loaded {
   opacity: 1;
 }
-.Gallery__items--block--image[draggable] {
+.Gallery__items--block--image[draggable="true"] {
   cursor: grab;
 }
 .Gallery__items--block--resize {
@@ -254,7 +299,7 @@ ul {
   z-index: 2;
   display: flex;
   flex-direction: column;
-  opacity: 0;
+  opacity: 1;
 }
 .Gallery__items--block--icons--container {
   position: relative;
@@ -267,7 +312,6 @@ ul {
   font-size: 1.2em;
   border: none;
   border-radius: 3px;
-  background-color: #1e1e1e;
   z-index: 2;
   opacity: 1;
   color: #eaeaea;
@@ -280,14 +324,15 @@ ul {
   right: 28px;
 }
 .Gallery__items--block--icons--container--remove-item {
-  padding: 3px 0 0 2px;
-  background-color: #b22222;
+  padding: 3px 0 0 5px;
+  background-color: #222;
 }
 .Gallery__items--block--icons--container--remove-item:hover {
   background-color: #b22222;
 }
 .Gallery__items--block--icons--container--edit-item {
   padding: 3px 0 0 2px;
+  background-color: #54b238;
 }
 .Gallery__items--block--icons--container--edit-item:hover {
   background-color: #54b238;
@@ -527,7 +572,7 @@ ul {
   align-items: center;
   justify-content: left;
   margin-bottom: 30px;
-  margin-top: 20px;
+  margin-top: 10px;
   flex-wrap: wrap;
 }
 .GalleryEditItem__modal--form--tags--checkbox {
@@ -539,6 +584,7 @@ ul {
   margin-bottom: 10px;
   cursor: pointer;
   user-select: none !important;
+  font-size: 0.7em;
 }
 .GalleryEditItem__modal--form--tags--checkbox:hover {
   background-color: #c7701f;
@@ -551,17 +597,21 @@ ul {
   color: #eaeaea;
   margin-right: 20px;
   padding: 10px 13px 8px 13px;
+  font-size: 0.8em;
+  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
 }
 .GalleryEditItem__modal--form button[type=reset]:hover {
   background-color: #666;
 }
 .GalleryEditItem__modal--form button[type=submit] {
-  background-color: #f18825;
+  background-color: #54b238;
   color: #eaeaea;
   padding: 10px 13px 8px 13px;
+  font-size: 0.8em;
+  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
 }
 .GalleryEditItem__modal--form button[type=submit]:hover {
-  background-color: #c7701f;
+  background-color: #287f28;
 }
 .Lightbox {
   position: fixed;

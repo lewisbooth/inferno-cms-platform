@@ -83,7 +83,7 @@
         &.loaded
           opacity 1
 
-        &[draggable]
+        &[draggable="true"]
           cursor grab
 
       &--resize
@@ -117,7 +117,7 @@
         z-index 2
         display flex
         flex-direction column
-        opacity 0
+        opacity 1
 
         &--container
           position relative
@@ -130,7 +130,6 @@
             font-size 1.2em
             border none
             border-radius 3px
-            background-color rgba(30,30,30,1)
             z-index 2
             opacity 1
             color $whitetext
@@ -143,14 +142,15 @@
                 right 28px
 
           &--remove-item
-            padding 3px 0 0 2px
-            background-color firebrick
+            padding 3px 0 0 5px
+            background-color #222
 
             &:hover
               background-color firebrick
 
           &--edit-item
             padding 3px 0 0 2px
+            background-color $green
 
             &:hover
               background-color $green

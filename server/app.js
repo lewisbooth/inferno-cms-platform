@@ -1,7 +1,11 @@
 const express = require('express')
+const app = express()
 const compression = require('compression')
 const bodyParser = require('body-parser')
 const path = require('path')
+const cors = require('./helpers/cors')
+const logging = require('./helpers/logging')
+const { catchErrors } = require('./helpers/errors')
 const multer  = require('multer')
 const upload = multer({ 
   storage: multer.memoryStorage(),
@@ -10,13 +14,8 @@ const upload = multer({
     files: 10
   }
 })
-const cors = require('./helpers/cors')
-const logging = require('./helpers/logging')
-const { catchErrors } = require('./helpers/errors')
 
 const apiController = require('./controllers/apiController')
-
-const app = express()
 
 if (process.env.ENV === 'DEV') { 
   app.use(cors) 

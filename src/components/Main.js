@@ -1,7 +1,8 @@
-import Component from 'inferno-component';
-import AdminBar from './AdminBar';
-import Nav from './Nav';
-import Footer from './Footer';
+import Component from 'inferno-component'
+import { cloneElement } from 'inferno-compat'
+import AdminBar from './AdminBar'
+import Nav from './Nav'
+import Footer from './Footer'
 
 class Main extends Component {
 
@@ -16,11 +17,13 @@ class Main extends Component {
 
   toggleEdit() {
     this.setState({
-      adminActive: !this.state.adminActive
+      editMode: !this.state.editMode
     })
   }
 
   render() {
+    // Clones children to pass down the editMode state 
+    const currentPage = cloneElement(this.props.children, { editMode: this.state.editMode })
     const editClass = this.state.editMode ? 'editing' : '' 
     return (
       <div className={ 'Main' + editClass }>
@@ -28,7 +31,7 @@ class Main extends Component {
           <AdminBar editMode={ this.state.editMode } toggleEdit={ this.toggleEdit.bind(this) } /> : null
         }
         <Nav /> 
-        { this.props.children }
+        { currentPage }
         <Footer />
       </div>
     );

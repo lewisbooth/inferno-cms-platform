@@ -8,15 +8,21 @@ import axios from 'axios'
 class Gallery extends Component {
 
   constructor(props) {
-    super(props);
-    this.galleryApi = 'http://192.168.0.10:1337/api/gallery'
-    this.removeItem = this.removeItem.bind(this);
-    this.handleLightbox = this.handleLightbox.bind(this);
+    super(props)
+
+    const { protocol, hostname, port } = window.location
+    const url = protocol + '//' + hostname + ( port ? ':1337' : '')
+    this.galleryApi = url + '/api/gallery'
+
+    this.removeItem = this.removeItem.bind(this)
+    this.handleLightbox = this.handleLightbox.bind(this)
+
     this.state = {
       galleryItems: [],
       lightbox: null,
       editItem: null,     
       addItem: null,
+      deleteItem: null,
       dragging: null,
       filters: ['food', 'drinks', 'restaurant', 'decor', 'service'],
       currentFilter: null
@@ -60,6 +66,10 @@ class Gallery extends Component {
       this.state.galleryItems.filter(entry => {
         return entry.tags.includes(this.state.currentFilter)
       }) : this.state.galleryItems
+  }
+
+  removeItemModal(enabled = true) {
+    this.setState({ deleteItem: enabled })
   }
 
   removeItem(index) {
@@ -120,9 +130,10 @@ class Gallery extends Component {
     const galleryItems = this.filterGallery().map((entry, i) => {
       return ( 
         <GalleryImage key={ i }
-                      num={ i }
+                      imageIndex={ i }
                       slug={ entry.slug }
                       alt={ entry.description }
+                      editMode={ this.props.editMode }
                       delete={ this.removeItem.bind(this) }
                       editItem={ this.editItem.bind(this) }
                       handleLightbox={ this.handleLightbox.bind(this) }
@@ -146,14 +157,16 @@ class Gallery extends Component {
           { this.state.addItem !== null ? 
             <GalleryAddItem imgData={ this.state.galleryItems[this.state.addItem] } addItem={ this.addItem.bind(this) } num={ this.state.addItem } /> 
           : null }
-          <div className="Gallery__add">
-            <button onClick={ () => this.addItem() } className='Button__main Gallery__add--button'>
+          { this.props.editMode ? 
+            <div className="Gallery__add">
+              <button onClick={ () => this.addItem() } className='Button__main Gallery__add--button'>
               <div className="Gallery__add--button--inner">
-                <div className='Gallery__add--button--inner--plus'>+ </div>
-                <div className='Gallery__add--button--inner--text'>Add Image</div>
+              <div className='Gallery__add--button--inner--plus'>+ </div>
+              <div className='Gallery__add--button--inner--text'>Add Image</div>
               </div>
-            </button>
-          </div>
+              </button>
+            </div>
+          : null }
           <div className="Gallery__items">
             { galleryItems }            
           </div>

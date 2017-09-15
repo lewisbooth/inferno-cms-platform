@@ -53,8 +53,10 @@ class GalleryEditItem extends Component {
   }
 
   resetTags = () => {    
+    // Resets tags back to their initial values
     const tagNodes = document.querySelectorAll('.GalleryEditItem__modal--form--tags--checkbox')
     tagNodes.forEach(tag => {
+      // Check against saved data
       const checked = this.props.imgData.tags.includes(tag.innerHTML) ? true : false
       if (checked) {
         tag.classList.add('checked')
