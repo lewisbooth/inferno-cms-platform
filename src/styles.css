@@ -195,6 +195,77 @@ ul {
   text-decoration: underline;
   cursor: pointer;
 }
+.BookingForm {
+  background-color: #444;
+  color: #eaeaea;
+  padding: 30px 20px;
+  margin: 0;
+}
+.BookingForm .page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.BookingForm__form1 {
+  display: flex;
+  font-size: 16px;
+}
+.BookingForm__form1--field {
+  background-color: #fff;
+  color: #222;
+  display: flex;
+  align-items: center;
+  padding: 9px 14px;
+  width: 175px;
+  margin-right: 20px;
+  border-radius: 5px;
+  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
+}
+.BookingForm__form1--field:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+.BookingForm__form1--field p {
+  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
+}
+.BookingForm__form1--field img {
+  margin-left: auto;
+  width: 20px;
+}
+.BookingForm__form1--field input {
+  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
+  font-size: 16px;
+  border: none;
+  background-color: rgba(255,255,255,0);
+}
+.BookingForm__form1--field input[type=number] {
+  padding-right: 0;
+}
+.BookingForm__form1--field input::-webkit-calendar-picker-indicator,
+.BookingForm__form1--field input::-webkit-clear-button,
+.BookingForm__form1--field input::-webkit-inner-spin-button,
+.BookingForm__form1--field input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+  display: none;
+}
+.BookingForm__form1--field input:focus {
+  outline: none;
+  background-color: rgba(255,255,255,0);
+}
+.BookingForm__form1--field input:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+.BookingForm__form1--submit {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  align-self: stretch;
+  font-size: 16px;
+}
 .Contact {
   background-color: #222;
   color: #eaeaea;
@@ -317,10 +388,11 @@ ul {
   margin-right: 10px;
 }
 .Gallery__filters--filter {
-  padding: 4px 12px 3px 12px;
+  padding: 6px 12px 5px 12px;
   border-radius: 50px;
   margin: 0 3px;
   user-select: none;
+  font-size: 0.8em;
   background-color: #444;
 }
 .Gallery__filters--filter:hover {
@@ -987,7 +1059,6 @@ ul {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border-bottom: 1px solid #f18825;
   overflow: hidden;
   position: relative;
 }
@@ -1009,38 +1080,6 @@ ul {
 }
 .Nav__background-image.loaded {
   opacity: 1;
-}
-.Nav__cta {
-  position: absolute;
-  top: 50px;
-  right: 50px;
-}
-.Nav__cta--book-table {
-  color: #eaeaea;
-  padding: 20px 25px 15px 25px;
-  font-size: 1.1em;
-}
-.Nav__cta--divide {
-  margin: 1.2em 0 0.6em 0;
-}
-.Nav__cta--phone {
-  letter-spacing: 0.1em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-.Nav__cta--phone--text {
-  font-size: 1.4em;
-  padding-top: 0.1em;
-}
-.Nav__cta--phone--icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 0.4em;
-}
-.Nav__cta--phone:hover {
-  text-decoration: underline;
 }
 .Nav__wrapper {
   z-index: 1;
@@ -1112,7 +1151,7 @@ ul {
   background-color: #444;
   color: #eaeaea;
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 40px;
   width: 100%;
 }
 .Newsletter__parogon-pubs h4 {
@@ -1129,7 +1168,7 @@ ul {
 }
 .ParogonNav {
   background-color: #000;
-  color: #aaa;
+  color: #eaeaea;
   padding: 0 10px;
 }
 .ParogonNav .page-container {
@@ -1140,7 +1179,7 @@ ul {
 .ParogonNav a {
   display: flex;
   align-items: center;
-  color: #aaa;
+  color: #eaeaea;
   user-select: none;
   text-decoration: none;
 }
@@ -1155,7 +1194,7 @@ ul {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 0.8em;
-  padding: 6px 12px;
+  padding: 13px 12px;
 }
 .ParogonNav__pub-list--item:hover {
   cursor: pointer;

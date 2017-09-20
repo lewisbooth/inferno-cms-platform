@@ -3,6 +3,7 @@ import { cloneElement } from "inferno-compat";
 import AdminBar from "./AdminBar";
 import ParogonNav from "./ParogonNav";
 import Nav from "./Nav";
+import BookingForm from "./BookingForm";
 import Newsletter from "./Newsletter";
 import Footer from "./Footer";
 import ToastMessage from "./ToastMessage";
@@ -87,6 +88,7 @@ class Main extends Component {
         <div className="ToastMessages">{toastMessages}</div>
         <ParogonNav />
         <Nav />
+        <BookingForm />
         {currentPage}
         <Newsletter />
         <Footer
