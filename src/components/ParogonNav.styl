@@ -1,0 +1,44 @@
+.ParogonNav
+  background-color #000
+  color #aaa
+  padding 0 10px
+
+  .page-container
+    display flex
+    justify-content space-between
+    align-items center
+
+  a
+    display flex
+    align-items center
+    color #aaa
+    user-select none
+    text-decoration none
+
+  &__main-logo
+    width 180px
+
+  &__pub-list
+    display flex
+    justify-content space-between
+
+
+    &--item
+      text-transform uppercase
+      letter-spacing 0.1em
+      font-size 0.8em
+      padding 6px 12px      
+
+      &:hover
+        cursor pointer
+        background-color #ddd
+        color $darkgrey
+
+      &.current
+        color $whitetext
+        background-color #444
+
+        &:hover
+          cursor pointer
+          background-color #ddd
+          color $darkgrey

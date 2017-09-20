@@ -14,7 +14,7 @@ class GalleryImage extends Component {
   }
 
   render() {
-    const { deleteItem,
+    const { deleteItemModal,
             editItem,
             handleLightbox,
             handleDragStart,
@@ -49,9 +49,9 @@ class GalleryImage extends Component {
         { editMode ?   
           <div className="Gallery__items--block--icons">
             <div className="Gallery__items--block--icons--container">
-              <button onClick={ () => deleteItem(imageIndex) } className="Gallery__items--block--icons--container--remove-item">✕</button>
+              <button onClick={ () => deleteItemModal(imageIndex) } className="Gallery__items--block--icons--container--remove-item">✕</button>
               <div className="Gallery__items--block--icons--container--remove-item--caption">
-                Remove Photo
+                Delete Photo
               </div>
             </div>
             <div className="Gallery__items--block--icons--container">

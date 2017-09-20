@@ -19,7 +19,7 @@
 
       & > div
         color $whitetext
-        font-size 1.4em
+        font-size 1.3em
 
       &:hover
         cursor pointer
@@ -39,6 +39,32 @@
         &--text
           font-size 1.2em
           font-family $nexabold
+
+  &__filters
+    display flex
+    justify-content center
+    align-items center
+    margin-bottom 40px
+    text-transform uppercase
+    letter-spacing 0.1em
+
+    &--title
+      font-family $nexabold
+      margin-right 10px
+
+    &--filter
+      padding 4px 12px 3px 12px
+      border-radius 50px
+      margin 0 3px
+      user-select none
+      background-color $darkgreyhighlight
+
+      &:hover
+        background-color #666
+        cursor pointer
+
+      &.active
+        background-color $orange
 
   &__items
     display flex

@@ -1,5 +1,62 @@
 .Footer
   background-color #111
-  color #666
-  text-align center
-  padding 20px
+  color #999
+  padding 30px 20px 0 20px
+
+  a
+    color $whitetext !important
+    text-decoration none
+
+    &:hover
+      color $whitetext !important
+      text-decoration underline
+
+  h5
+    font-size 1.2em
+    text-transform uppercase
+    margin-bottom 20px
+    letter-spacing 0.1em
+
+  .page-container
+    display flex
+    justify-content space-between
+
+    .Footer__column
+      margin-bottom 30px
+      width 33.3%
+      line-height 1.6em
+
+      &--menu--copyright
+        margin-top 20px
+
+      &--find-us
+        margin-bottom 20px
+
+      &--contact-us a
+        display flex
+        align-items center
+        letter-spacing 0.1em
+        line-height 2em
+
+      &--contact-us--icon 
+        width 22px
+        margin-right 10px
+
+  &__AMP
+    width 100%
+    background-color #000
+    padding 10px 20px
+    margin 0 0 0 -20px
+    display flex
+    justify-content space-between
+
+    &--sign-in
+      color #666
+
+      &:hover
+        color $whitetext
+        cursor pointer
+        text-decoration underline
+
+.admin .Footer
+  margin-bottom 75px

@@ -22,16 +22,31 @@ button
   letter-spacing 0.2em
   transition all .3s
 
+input:focus
+  outline none
+  background-color $darkgreyhighlight
+
 .Button__main
   background-color $orange
+  color $whitetext
   font-family $nexabold
+  font-size 0.8em
   -webkit-box-shadow 3px 4px 22px -4px rgba(0,0,0,0.75)
   -moz-box-shadow 3px 4px 22px -4px rgba(0,0,0,0.75)
   box-shadow 3px 4px 22px -4px rgba(0,0,0,0.75)
+  display inline-flex
+  align-items center
+  align-self flex-start
+
+  img
+    height 20px
+    margin-right 10px
 
   &:hover
     background-color $darkorange
 
+.no-underline
+  text-decoration none !important
 
 h2
   text-transform uppercase
@@ -67,7 +82,7 @@ ul
 .page
   padding 12px 50px 80px 50px
 
-  & .page-container
-    max-width 1500px
-    margin 0 auto
-
+.page-container
+  max-width 1500px
+  width 100%
+  margin 0 auto
