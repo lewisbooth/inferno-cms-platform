@@ -4,6 +4,21 @@
   padding 30px 20px
   margin 0
 
+  input::selection 
+    background rgba(255,255,255,0)
+    color $black
+
+  input[type=date]  
+    &::-webkit-datetime-edit-month-field
+      background rgba(255,255,255,0)
+    
+    &::-webkit-datetime-edit-day-field
+      background rgba(255,255,255,0)
+    
+    &::-webkit-datetime-edit-year-field
+      background rgba(255,255,255,0)
+      color $black
+
   .page-container
     display flex
     justify-content center
@@ -19,10 +34,12 @@
       display flex
       align-items center
       padding 9px 14px
-      width 175px
+      width 200px
       margin-right 20px
-      border-radius 5px
       font-family $nexabold
+      box-sizing border-box
+      user-select none
+      z-index 8
 
       &:hover
         background-color #ddd
@@ -33,13 +50,14 @@
 
       img 
         margin-left auto
-        width 20px
+        height 20px
 
       input
         font-family $nexabold
         font-size 16px
         border none 
         background-color rgba(255,255,255,0)
+        user-select none
 
         &[type=number]
           padding-right 0
@@ -62,9 +80,88 @@
           background-color #ddd
           cursor pointer
 
+    &--dropdown
+      padding 20px
+      background-color black
+      color $white
+      position absolute
+      margin-top 10px
+      border-radius 5px
+      width 200px
+      box-sizing border-box
+      user-select none
+      z-index 2
+
+      &--close
+        position fixed
+        top 0
+        left 0
+        width 100vw
+        height 100vh
+        z-index -1
+
+      &--connector
+        width 10px
+        height 10px
+        transform rotate(45deg)
+        position absolute
+        top -5px
+        left 95px        
+        background-color black
+        z-index 0
+
+      &--guests
+        display flex
+        align-items center
+        justify-content space-between
+
+        &--increment
+          width 20px
+          cursor pointer
+          border-radius 100%
+
+          &:active
+            -webkit-box-shadow 0px 0px 5px 3px $orange
+            -moz-box-shadow 0px 0px 5px 3px $orange
+            box-shadow 0px 0px 5px 3px $orange
+
+          &.disabled
+            cursor default
+            opacity 0.5
+
+            &:active
+              -webkit-box-shadow none
+              -moz-box-shadow none
+              box-shadow none
+      
+      &--extra-guests
+        margin-top 10px
+        
+        a
+          color $orange
+          text-decoration none
+          letter-spacing 0.1em
+
+          &:hover
+            text-decoration underline
+
+      &--calendar
+        width 250px
+        margin-left -25px
+        
+        & .BookingForm__form1--dropdown--connector
+          left 120px 
+
+      &--times
+        width 790px
+        margin-left -300px
+        
+        & .BookingForm__form1--dropdown--connector
+          left 395px   
+
     &--submit
       -webkit-box-shadow none
       -moz-box-shadow none
       box-shadow none
+      border-radius none !important
       align-self stretch
-      font-size 16px

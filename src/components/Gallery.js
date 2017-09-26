@@ -63,11 +63,7 @@ class Gallery extends Component {
       });
   }
 
-  postGallery(
-    newGalleryItems,
-    successMessage = "Successfully updated the gallery",
-    errorMessage = "Error updating the gallery"
-  ) {
+  postGallery(newGalleryItems, successMessage, errorMessage) {
     axios
       .post(this.galleryApi, newGalleryItems)
       .then(res => {
@@ -76,10 +72,14 @@ class Gallery extends Component {
         } else {
           this.setState({ galleryItems: [] });
         }
-        this.props.toast("success", successMessage);
+        if (successMessage) {
+          this.props.toast("success", successMessage);
+        }
       })
       .catch(err => {
-        this.props.toast("error", errorMessage);
+        if (errorMessage) {
+          this.props.toast("error", errorMessage);
+        }
         console.log(err);
       });
   }
@@ -97,11 +97,11 @@ class Gallery extends Component {
 
   filterGallery() {
     const { currentFilters, galleryItems } = this.state;
-    // Bypass filter loop if none are set
+    // Bypass filter loop if none are set (saves processing cycles) or if user is logged in, because you can't re-arrange the gallery properly when filters are applied
     if (currentFilters.length === 0 || this.props.editMode === true) {
       return galleryItems;
     }
-    // Loop through each gallery image and tag to filter matches
+    // Loop through each gallery image filter if tag matches
     return galleryItems.filter(item => {
       let match = false;
       currentFilters.forEach(filter => {
@@ -177,10 +177,7 @@ class Gallery extends Component {
       dragging: null
     });
     e.target.classList.remove("drag-over");
-    this.postGallery(
-      galleryItems,
-      `Successfully moved ${draggedItem[0].description}`
-    );
+    this.postGallery(galleryItems);
   }
 
   render() {

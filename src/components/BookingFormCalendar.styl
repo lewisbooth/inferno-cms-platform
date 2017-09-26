@@ -1,0 +1,52 @@
+.BookingFormCalendar
+  display flex
+  flex-direction column
+
+  &__month
+    font-family $nexabold
+    margin-bottom 5px
+
+  &__days
+    display flex
+    justify-content space-between
+    font-size 0.8em
+    color #888888
+    margin-bottom 5px
+
+    li
+      width 18px
+      text-align center
+
+  &__monthGrid
+    display flex
+    flex-direction column
+    margin-bottom 10px
+
+    &--week
+      display flex
+      justify-content space-between
+      margin-bottom 5px
+
+      li  
+        width 28px
+        height 28px
+        padding 6px 5px
+        text-align center
+        font-size 0.8em
+        user-select none
+        border-radius 100%
+        box-sizing border-box
+
+        &.active
+          background-color $orange !important
+
+        &.today
+          background-color $darkgreyhighlight
+
+        &:hover
+          background-color $darkorange
+          cursor pointer
+
+      &--spacer:hover
+        background-color black !important
+        cursor default !important

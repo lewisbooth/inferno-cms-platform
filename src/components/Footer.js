@@ -45,8 +45,11 @@ class Footer extends Component {
             </p>
             <a class="no-underline" href="/contact">
               <button className="Button__main">
-                <img src="/images/icons/map-pin.svg" alt="" />
-                Find on map
+                <img
+                  src="/images/icons/map-pin.svg"
+                  alt="Get Directions on Map"
+                />
+                Get Directions
               </button>
             </a>
           </div>
@@ -74,7 +77,6 @@ class Footer extends Component {
               </a>
               <br />
             </p>
-            <button className="Button__main">Book online</button>
           </div>
         </div>
         <div className="Footer__AMP">

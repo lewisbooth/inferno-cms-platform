@@ -22,7 +22,7 @@ class Newsletter extends Component {
           </form>
         </div>
         <div className="Newsletter__parogon-pubs">
-          <h5>Part of the </h5>
+          <h5>Proudly part of the </h5>
           <h4>Parogon Pub Group</h4>
           <div className="Newsletter__parogon-pubs--logos page-container">
             <img

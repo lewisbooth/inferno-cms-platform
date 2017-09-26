@@ -16,6 +16,12 @@
   margin: 0;
   padding: 0;
 }
+*[hidden] {
+  display: none;
+}
+.hidden {
+  display: none !important;
+}
 body {
   margin: 0;
   padding: 0;
@@ -29,21 +35,16 @@ button {
   cursor: pointer;
   outline: none;
   border: none;
-  border-radius: 5px;
   padding: 10px 15px;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   transition: all 0.3s;
 }
-input:focus {
-  outline: none;
-  background-color: #444;
-}
 .Button__main {
   background-color: #f18825;
   color: #eaeaea;
   font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
-  font-size: 0.8em;
+  font-size: 16px;
   -webkit-box-shadow: 3px 4px 22px -4px rgba(0,0,0,0.75);
   -moz-box-shadow: 3px 4px 22px -4px rgba(0,0,0,0.75);
   box-shadow: 3px 4px 22px -4px rgba(0,0,0,0.75);
@@ -57,6 +58,10 @@ input:focus {
 }
 .Button__main:hover {
   background-color: #c7701f;
+}
+input:focus {
+  outline: none;
+  background-color: #444;
 }
 .no-underline {
   text-decoration: none !important;
@@ -78,6 +83,9 @@ h3 {
   text-align: center;
   font-family: "Ostrich Sans Web", "Segoe UI", arial, verdana, sans-serif;
   margin: 50px auto;
+}
+.bold {
+  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
 }
 ul {
   list-style: none;
@@ -189,7 +197,8 @@ ul {
   color: #eaeaea;
 }
 .AdminBar__profile--greeting h4 {
-  font-size: 1.5em;
+  font-size: 1.4em;
+  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
 }
 .AdminBar__profile--greeting--sign-out:hover {
   text-decoration: underline;
@@ -200,6 +209,20 @@ ul {
   color: #eaeaea;
   padding: 30px 20px;
   margin: 0;
+}
+.BookingForm input::selection {
+  background: rgba(255,255,255,0);
+  color: #111;
+}
+.BookingForm input[type=date]::-webkit-datetime-edit-month-field {
+  background: rgba(255,255,255,0);
+}
+.BookingForm input[type=date]::-webkit-datetime-edit-day-field {
+  background: rgba(255,255,255,0);
+}
+.BookingForm input[type=date]::-webkit-datetime-edit-year-field {
+  background: rgba(255,255,255,0);
+  color: #111;
 }
 .BookingForm .page-container {
   display: flex;
@@ -216,10 +239,12 @@ ul {
   display: flex;
   align-items: center;
   padding: 9px 14px;
-  width: 175px;
+  width: 200px;
   margin-right: 20px;
-  border-radius: 5px;
   font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
+  box-sizing: border-box;
+  user-select: none;
+  z-index: 8;
 }
 .BookingForm__form1--field:hover {
   background-color: #ddd;
@@ -230,13 +255,14 @@ ul {
 }
 .BookingForm__form1--field img {
   margin-left: auto;
-  width: 20px;
+  height: 20px;
 }
 .BookingForm__form1--field input {
   font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
   font-size: 16px;
   border: none;
   background-color: rgba(255,255,255,0);
+  user-select: none;
 }
 .BookingForm__form1--field input[type=number] {
   padding-right: 0;
@@ -259,12 +285,181 @@ ul {
   background-color: #ddd;
   cursor: pointer;
 }
+.BookingForm__form1--dropdown {
+  padding: 20px;
+  background-color: #000;
+  color: $white;
+  position: absolute;
+  margin-top: 10px;
+  border-radius: 5px;
+  width: 200px;
+  box-sizing: border-box;
+  user-select: none;
+  z-index: 2;
+}
+.BookingForm__form1--dropdown--close {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+.BookingForm__form1--dropdown--connector {
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  position: absolute;
+  top: -5px;
+  left: 95px;
+  background-color: #000;
+  z-index: 0;
+}
+.BookingForm__form1--dropdown--guests {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.BookingForm__form1--dropdown--guests--increment {
+  width: 20px;
+  cursor: pointer;
+  border-radius: 100%;
+}
+.BookingForm__form1--dropdown--guests--increment:active {
+  -webkit-box-shadow: 0px 0px 5px 3px #f18825;
+  -moz-box-shadow: 0px 0px 5px 3px #f18825;
+  box-shadow: 0px 0px 5px 3px #f18825;
+}
+.BookingForm__form1--dropdown--guests--increment.disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+.BookingForm__form1--dropdown--guests--increment.disabled:active {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.BookingForm__form1--dropdown--extra-guests {
+  margin-top: 10px;
+}
+.BookingForm__form1--dropdown--extra-guests a {
+  color: #f18825;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+}
+.BookingForm__form1--dropdown--extra-guests a:hover {
+  text-decoration: underline;
+}
+.BookingForm__form1--dropdown--calendar {
+  width: 250px;
+  margin-left: -25px;
+}
+.BookingForm__form1--dropdown--calendar .BookingForm__form1--dropdown--connector {
+  left: 120px;
+}
+.BookingForm__form1--dropdown--times {
+  width: 790px;
+  margin-left: -300px;
+}
+.BookingForm__form1--dropdown--times .BookingForm__form1--dropdown--connector {
+  left: 395px;
+}
 .BookingForm__form1--submit {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  border-radius: none !important;
   align-self: stretch;
-  font-size: 16px;
+}
+.BookingFormCalendar {
+  display: flex;
+  flex-direction: column;
+}
+.BookingFormCalendar__month {
+  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
+  margin-bottom: 5px;
+}
+.BookingFormCalendar__days {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+  color: #888;
+  margin-bottom: 5px;
+}
+.BookingFormCalendar__days li {
+  width: 18px;
+  text-align: center;
+}
+.BookingFormCalendar__monthGrid {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.BookingFormCalendar__monthGrid--week {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.BookingFormCalendar__monthGrid--week li {
+  width: 28px;
+  height: 28px;
+  padding: 6px 5px;
+  text-align: center;
+  font-size: 0.8em;
+  user-select: none;
+  border-radius: 100%;
+  box-sizing: border-box;
+}
+.BookingFormCalendar__monthGrid--week li.active {
+  background-color: #f18825 !important;
+}
+.BookingFormCalendar__monthGrid--week li.today {
+  background-color: #444;
+}
+.BookingFormCalendar__monthGrid--week li:hover {
+  background-color: #c7701f;
+  cursor: pointer;
+}
+.BookingFormCalendar__monthGrid--week--spacer:hover {
+  background-color: #000 !important;
+  cursor: default !important;
+}
+.BookingFormTimes {
+  display: flex;
+  justify-content: space-between;
+}
+.BookingFormTimes__sitting h5 {
+  font-size: 1em;
+  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
+}
+.BookingFormTimes__sitting--grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 240px;
+}
+.BookingFormTimes__sitting--grid li {
+  width: 50px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  font-size: 0.8em;
+  padding: 5px 4px;
+  margin-top: 10px;
+  user-select: none;
+}
+.BookingFormTimes__sitting--grid li:hover {
+  background-color: #c7701f;
+  cursor: pointer;
+}
+.BookingFormTimes__sitting--grid li.active {
+  background-color: #f18825;
+}
+.BookingFormTimes__sitting--grid li.unavailable {
+  color: #888;
+  text-decoration: line-through;
+}
+.BookingFormTimes__sitting--grid li.unavailable:hover {
+  background-color: rgba(0,0,0,0);
+  cursor: default;
 }
 .Contact {
   background-color: #222;
@@ -297,6 +492,9 @@ ul {
   margin-bottom: 30px;
   width: 33.3%;
   line-height: 1.6em;
+}
+.Footer .page-container .Footer__column button {
+  font-size: 14px;
 }
 .Footer .page-container .Footer__column--menu--copyright {
   margin-top: 20px;
@@ -366,13 +564,12 @@ ul {
   align-items: center;
 }
 .Gallery__add--button--inner--plus {
-  font-size: 3.1em;
+  font-size: 2.4em;
   margin-right: 10px;
   margin-top: -30px;
   height: 30px;
 }
 .Gallery__add--button--inner--text {
-  font-size: 1.2em;
   font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
 }
 .Gallery__filters {
@@ -563,7 +760,7 @@ ul {
   align-items: center;
   justify-content: center;
   border-radius: 5px;
-  padding: 3px 0 0 2px;
+  padding: 3px 0 0 4px;
 }
 .GalleryAddItem__close:hover {
   background-color: #b22222;
@@ -684,7 +881,7 @@ ul {
   align-items: center;
   justify-content: center;
   border-radius: 5px;
-  padding: 3px 0 0 2px;
+  padding: 3px 0 0 4px;
 }
 .GalleryDeleteItem__close:hover {
   background-color: #b22222;
@@ -706,6 +903,9 @@ ul {
   padding: 40px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-self: stretch;
+  border-left: 1px solid #f18825;
 }
 .GalleryDeleteItem__modal--confirm--title {
   font-size: 2.4em;
@@ -761,7 +961,7 @@ ul {
   align-items: center;
   justify-content: center;
   border-radius: 5px;
-  padding: 3px 0 0 2px;
+  padding: 3px 0 0 4px;
 }
 .GalleryEditItem__close:hover {
   background-color: #b22222;
@@ -914,7 +1114,7 @@ ul {
   align-items: center;
   justify-content: center;
   border-radius: 5px;
-  padding: 3px 0 0 2px;
+  padding: 3px 0 0 4px;
 }
 .Lightbox__close:hover {
   background-color: #b22222;
@@ -1054,7 +1254,7 @@ ul {
   padding: 30px 20px;
   margin: 0;
   color: #fff;
-  height: 500px;
+  height: 420px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1158,6 +1358,7 @@ ul {
   margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
 }
 .Newsletter__parogon-pubs h5 {
   font-size: 1.2em;
@@ -1194,7 +1395,7 @@ ul {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 0.8em;
-  padding: 13px 12px;
+  padding: 10px 12px;
 }
 .ParogonNav__pub-list--item:hover {
   cursor: pointer;

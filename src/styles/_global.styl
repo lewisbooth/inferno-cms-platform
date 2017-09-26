@@ -3,6 +3,12 @@
   margin 0
   padding 0
 
+*[hidden] 
+  display none
+
+.hidden
+  display none !important
+
 body
   margin 0
   padding 0
@@ -16,21 +22,16 @@ button
   cursor pointer
   outline none
   border none
-  border-radius 5px
   padding 10px 15px
   text-transform uppercase
   letter-spacing 0.2em
   transition all .3s
 
-input:focus
-  outline none
-  background-color $darkgreyhighlight
-
 .Button__main
   background-color $orange
   color $whitetext
   font-family $nexabold
-  font-size 0.8em
+  font-size 16px
   -webkit-box-shadow 3px 4px 22px -4px rgba(0,0,0,0.75)
   -moz-box-shadow 3px 4px 22px -4px rgba(0,0,0,0.75)
   box-shadow 3px 4px 22px -4px rgba(0,0,0,0.75)
@@ -44,6 +45,10 @@ input:focus
 
   &:hover
     background-color $darkorange
+
+input:focus
+  outline none
+  background-color $darkgreyhighlight
 
 .no-underline
   text-decoration none !important
@@ -65,6 +70,9 @@ h3
   text-align center
   font-family $ostrich
   margin 50px auto
+
+.bold
+  font-family $nexabold
 
 ul
   list-style none

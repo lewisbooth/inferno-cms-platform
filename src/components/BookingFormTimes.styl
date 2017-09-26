@@ -1,0 +1,38 @@
+.BookingFormTimes
+  display flex
+  justify-content space-between
+
+  &__sitting
+
+    h5
+      font-size 1em
+      font-family $nexabold
+
+    &--grid
+      display flex
+      flex-wrap wrap
+      width 240px
+
+      & li
+        width 50px
+        text-align center
+        letter-spacing 0.1em
+        font-size 0.8em
+        padding 5px 4px
+        margin-top 10px
+        user-select none
+
+        &:hover
+          background-color $darkorange
+          cursor pointer
+
+        &.active
+          background-color $orange
+
+        &.unavailable
+          color #888
+          text-decoration line-through
+
+          &:hover
+            background-color rgba(0,0,0,0)
+            cursor default
