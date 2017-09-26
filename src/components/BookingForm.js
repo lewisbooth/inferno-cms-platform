@@ -21,7 +21,8 @@ class BookingForm extends Component {
     e.preventDefault();
   }
 
-  toggleDropdowns(dropdown) {
+  toggleDropdowns(e, dropdown) {
+    e.preventDefault();
     const hideGuests = dropdown === "guests" ? false : true;
     const hideCalendar = dropdown === "calendar" ? false : true;
     const hideTimes = dropdown === "times" ? false : true;
@@ -81,6 +82,39 @@ class BookingForm extends Component {
     return maxDate.toISOString().substring(0, 10);
   }
 
+  // Formats 2017-10-01 into 1st October
+  parseDate(dateString) {
+    const dateArray = dateString.split("-");
+    let date = dateArray[2];
+    let suffix = "th";
+    if (date === "01" || date === "21" || date === "31") {
+      suffix = "st";
+    } else if (date === "02" || date === "22") {
+      suffix = "nd";
+    } else if (date === "03" || date === "23") {
+      suffix = "rd";
+    }
+    // Removes 0 prefix
+    date = parseFloat(date).toString();
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
+    const monthIndex = parseFloat(dateArray[1] - 1);
+    const month = months[monthIndex];
+    return `${date}${suffix} ${month}`;
+  }
+
   render() {
     const hideGuests = this.state.hideGuests ? "hidden" : "";
     const hideCalendar = this.state.hideCalendar ? "hidden" : "";
@@ -97,7 +131,7 @@ class BookingForm extends Component {
             <div>
               <div
                 className="BookingForm__form1--field"
-                onClick={() => this.toggleDropdowns("guests")}
+                onClick={e => this.toggleDropdowns(e, "guests")}
               >
                 <input
                   name="guests"
@@ -107,6 +141,7 @@ class BookingForm extends Component {
                   max="8"
                   min="1"
                   required
+                  readonly
                 />
                 <p>Guest{this.state.guests > 1 ? "s" : ""}</p>
                 <label hidden htmlFor="guests">
@@ -117,7 +152,7 @@ class BookingForm extends Component {
               <div className={`BookingForm__form1--dropdown ${hideGuests}`}>
                 <div
                   className="BookingForm__form1--dropdown--close"
-                  onClick={() => this.toggleDropdowns()}
+                  onClick={e => this.toggleDropdowns(e)}
                 />
                 <div className="BookingForm__form1--dropdown--connector" />
                 <div className="BookingForm__form1--dropdown--guests">
@@ -147,18 +182,17 @@ class BookingForm extends Component {
             <div>
               <div
                 className="BookingForm__form1--field"
-                onClick={() => this.toggleDropdowns("calendar")}
+                onClick={e => this.toggleDropdowns(e, "calendar")}
               >
                 <label hidden htmlFor="date">
                   Date of booking (no more than 1 month in advance)
                 </label>
                 <input
                   name="date"
-                  type="date"
-                  value={this.state.selectedDate}
-                  min={this.state.date}
-                  max={this.getMaxDate()}
+                  type="text"
+                  value={this.parseDate(this.state.selectedDate)}
                   required
+                  readonly
                 />
                 <img
                   src="images/icons/booking/calendar.svg"
@@ -170,7 +204,7 @@ class BookingForm extends Component {
               >
                 <div
                   className="BookingForm__form1--dropdown--close"
-                  onClick={() => this.toggleDropdowns()}
+                  onClick={e => this.toggleDropdowns(e)}
                 />
                 <div className="BookingForm__form1--dropdown--connector" />
                 <BookingFormCalendar
@@ -182,12 +216,18 @@ class BookingForm extends Component {
             <div>
               <div
                 className="BookingForm__form1--field"
-                onClick={() => this.toggleDropdowns("times")}
+                onClick={e => this.toggleDropdowns(e, "times")}
               >
                 <label hidden htmlFor="time">
                   Time of booking
                 </label>
-                <input id="time" type="time" value={this.state.time} required />
+                <input
+                  id="time"
+                  type="text"
+                  value={this.state.time}
+                  required
+                  readonly
+                />
                 <img src="images/icons/booking/clock.svg" alt="Clock icon" />
               </div>
               <div
@@ -195,7 +235,7 @@ class BookingForm extends Component {
               >
                 <div
                   className="BookingForm__form1--dropdown--close"
-                  onClick={() => this.toggleDropdowns()}
+                  onClick={e => this.toggleDropdowns(e)}
                 />
                 <div className="BookingForm__form1--dropdown--connector" />
                 <BookingFormTimes

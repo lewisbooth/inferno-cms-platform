@@ -1,23 +1,83 @@
 
-.Menu
+.Menus
   background-color $darkgrey
   color $whitetext
+  display flex
+  flex-direction column
+  align-items center
+
+  h2
+    margin-bottom 35px
+
+  &__list
+    display flex
+    flex-wrap wrap
+
+    li
+      padding 10px 14px
+      margin 10px
+      background-color $darkgreyhighlight
+      user-select none
+
+      &:hover
+        cursor pointer
+        background-color #666
+
+      &.active
+        background-color $orange
+
+        &:hover
+          cursor pointer
+          background-color $orange
 
   &__sections
     max-width 1600px
     margin 0 auto
 
 .MenuSection
-  padding 20px
-
-  &__blocks
-    column-count 2
+  padding 0 20px
+  display flex
+  flex-direction column
+  align-items center
 
   &__title
     width 100%
     padding-bottom 20px
     border-bottom 1px solid $orange
     margin-bottom 30px
+
+  &__options
+    display flex
+    align-items center
+    margin-bottom 30px
+
+    span 
+      font-family $nexabold
+      text-transform uppercase
+      font-size 0.8em
+      letter-spacing 0.1em
+      margin-right 5px
+
+    &--PDF button
+      color $whitetext
+      text-decoration none
+      font-size 0.8em
+      margin-left 40px
+
+    &--filters
+      display flex
+      text-transform uppercase
+      font-size 0.8em
+      letter-spacing 0.1em
+
+      li
+        padding 6px 12px 
+        background-color $darkgreyhighlight
+        border-radius 50px
+        margin 0 5px
+
+  &__blocks
+    column-count 2
 
 .MenuBlock
   background-color $whitetext

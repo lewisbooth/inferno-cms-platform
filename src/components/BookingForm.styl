@@ -4,11 +4,22 @@
   padding 30px 20px
   margin 0
 
+  input
+    font-family $nexabold
+
   input::selection 
     background rgba(255,255,255,0)
     color $black
 
-  input[type=date]  
+  input[type=number] 
+    -moz-appearance textfield
+    width 14px
+  
+
+  input[type=date]
+    &::-webkit-clear-button
+      width 200px
+    
     &::-webkit-datetime-edit-month-field
       background rgba(255,255,255,0)
     
@@ -16,8 +27,11 @@
       background rgba(255,255,255,0)
     
     &::-webkit-datetime-edit-year-field
-      background rgba(255,255,255,0)
+      background rgba(255,255,255,0) !important
       color $black
+
+  label
+    display none
 
   .page-container
     display flex
@@ -58,6 +72,7 @@
         border none 
         background-color rgba(255,255,255,0)
         user-select none
+        width 150px
 
         &[type=number]
           padding-right 0

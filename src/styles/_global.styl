@@ -4,7 +4,7 @@
   padding 0
 
 *[hidden] 
-  display none
+  display none !important
 
 .hidden
   display none !important
@@ -77,15 +77,14 @@ h3
 ul
   list-style none
 
-::-moz-selection { 
+::-moz-selection 
   background $orange
   color $whitetext
-}
 
-::selection { 
+
+::selection 
   background $orange
   color $whitetext
-}
 
 .page
   padding 12px 50px 80px 50px

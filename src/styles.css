@@ -17,7 +17,7 @@
   padding: 0;
 }
 *[hidden] {
-  display: none;
+  display: none !important;
 }
 .hidden {
   display: none !important;
@@ -210,9 +210,19 @@ ul {
   padding: 30px 20px;
   margin: 0;
 }
+.BookingForm input {
+  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
+}
 .BookingForm input::selection {
   background: rgba(255,255,255,0);
   color: #111;
+}
+.BookingForm input[type=number] {
+  -moz-appearance: textfield;
+  width: 14px;
+}
+.BookingForm input[type=date]::-webkit-clear-button {
+  width: 200px;
 }
 .BookingForm input[type=date]::-webkit-datetime-edit-month-field {
   background: rgba(255,255,255,0);
@@ -221,8 +231,11 @@ ul {
   background: rgba(255,255,255,0);
 }
 .BookingForm input[type=date]::-webkit-datetime-edit-year-field {
-  background: rgba(255,255,255,0);
+  background: rgba(255,255,255,0) !important;
   color: #111;
+}
+.BookingForm label {
+  display: none;
 }
 .BookingForm .page-container {
   display: flex;
@@ -263,6 +276,7 @@ ul {
   border: none;
   background-color: rgba(255,255,255,0);
   user-select: none;
+  width: 150px;
 }
 .BookingForm__form1--field input[type=number] {
   padding-right: 0;
@@ -1163,25 +1177,85 @@ ul {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.Menu {
+.Menus {
   background-color: #222;
   color: #eaeaea;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.Menu__sections {
+.Menus h2 {
+  margin-bottom: 35px;
+}
+.Menus__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.Menus__list li {
+  padding: 10px 14px;
+  margin: 10px;
+  background-color: #444;
+  user-select: none;
+}
+.Menus__list li:hover {
+  cursor: pointer;
+  background-color: #666;
+}
+.Menus__list li.active {
+  background-color: #f18825;
+}
+.Menus__list li.active:hover {
+  cursor: pointer;
+  background-color: #f18825;
+}
+.Menus__sections {
   max-width: 1600px;
   margin: 0 auto;
 }
 .MenuSection {
-  padding: 20px;
-}
-.MenuSection__blocks {
-  column-count: 2;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .MenuSection__title {
   width: 100%;
   padding-bottom: 20px;
   border-bottom: 1px solid #f18825;
   margin-bottom: 30px;
+}
+.MenuSection__options {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.MenuSection__options span {
+  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+  margin-right: 5px;
+}
+.MenuSection__options--PDF button {
+  color: #eaeaea;
+  text-decoration: none;
+  font-size: 0.8em;
+  margin-left: 40px;
+}
+.MenuSection__options--filters {
+  display: flex;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+}
+.MenuSection__options--filters li {
+  padding: 6px 12px;
+  background-color: #444;
+  border-radius: 50px;
+  margin: 0 5px;
+}
+.MenuSection__blocks {
+  column-count: 2;
 }
 .MenuBlock {
   background-color: #eaeaea;
