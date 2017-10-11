@@ -80,18 +80,20 @@ class Footer extends Component {
           </div>
         </div>
         <div className="Footer__AMP">
-          <div className="Footer__AMP--credits">
-            Designed &amp; Developed by{" "}
-            <a href="https://amp.studio" target="_blank">
-              ΛMP Studio
-            </a>{" "}
-            // ΛMP CMS v{this.props.versionNumber}
-          </div>
-          {!this.props.loggedIn ? (
-            <div className="Footer__AMP--sign-in" onClick={this.props.signIn}>
-              Sign in
+          <div className="page-container">
+            <div className="Footer__AMP--credits">
+              Designed &amp; Developed by{" "}
+              <a href="https://amp.studio" target="_blank">
+                ΛMP Studio
+              </a>{" "}
+              // ΛMP CMS v{this.props.versionNumber}
             </div>
-          ) : null}
+            {!this.props.loggedIn ? (
+              <div className="Footer__AMP--sign-in" onClick={this.props.signIn}>
+                Sign in
+              </div>
+            ) : null}
+          </div>
         </div>
       </footer>
     );

@@ -42,7 +42,7 @@ button {
 }
 .Button__main {
   background-color: #f18825;
-  color: #eaeaea;
+  color: #fff;
   font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
   font-size: 16px;
   -webkit-box-shadow: 3px 4px 22px -4px rgba(0,0,0,0.75);
@@ -61,7 +61,7 @@ button {
 }
 input:focus {
   outline: none;
-  background-color: #444;
+  background-color: #282828;
 }
 .no-underline {
   text-decoration: none !important;
@@ -92,11 +92,11 @@ ul {
 }
 ::-moz-selection {
   background: #f18825;
-  color: #eaeaea;
+  color: #fff;
 }
 ::selection {
   background: #f18825;
-  color: #eaeaea;
+  color: #fff;
 }
 .page {
   padding: 12px 50px 80px 50px;
@@ -106,12 +106,16 @@ ul {
   width: 100%;
   margin: 0 auto;
 }
+.bold-orange {
+  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
+  color: #f18825;
+}
 .AdminBar {
   position: fixed;
   bottom: 0;
   padding: 10px 20px;
   width: 100%;
-  color: #eaeaea;
+  color: #fff;
   background-color: #f18825;
   border-top: 2px solid #c7701f;
   border-bottom: none;
@@ -126,7 +130,7 @@ ul {
 .AdminBar button {
   background-color: #f18825;
   color: #fff;
-  border: 1px solid #eaeaea;
+  border: 1px solid #fff;
   display: flex;
   align-items: center;
   font-size: 1em;
@@ -135,7 +139,7 @@ ul {
 .AdminBar button svg {
   height: 20px;
   margin-left: 5px;
-  fill: #eaeaea;
+  fill: #fff;
 }
 .AdminBar button:hover {
   background-color: #fff;
@@ -150,10 +154,10 @@ ul {
 }
 .AdminBar.editing button {
   background-color: #54b238;
-  border: 1px solid #eaeaea;
+  border: 1px solid #fff;
 }
 .AdminBar.editing button:hover {
-  background-color: #eaeaea;
+  background-color: #fff;
   color: #54b238;
 }
 .AdminBar__status {
@@ -185,7 +189,7 @@ ul {
   height: 50px;
   width: 50px;
   border-radius: 100%;
-  border: 2px solid #eaeaea;
+  border: 2px solid #fff;
   margin-right: 20px;
 }
 .AdminBar__profile--greeting {
@@ -194,7 +198,7 @@ ul {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  color: #eaeaea;
+  color: #fff;
 }
 .AdminBar__profile--greeting h4 {
   font-size: 1.4em;
@@ -205,10 +209,18 @@ ul {
   cursor: pointer;
 }
 .BookingForm {
-  background-color: #444;
-  color: #eaeaea;
-  padding: 30px 20px;
+  background-color: #282828;
+  color: #fff;
+  padding: 30px 20px 40px 20px;
   margin: 0;
+  border-bottom: 1px solid #f18825;
+}
+.BookingForm h3 {
+  margin: 0 0 20px 0;
+  font-family: "Nexa Light Web", "Segoe UI", arial, verdana, sans-serif;
+  text-transform: none;
+  font-size: 22px;
+  letter-spacing: 0.02em;
 }
 .BookingForm input {
   font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
@@ -379,6 +391,7 @@ ul {
   left: 395px;
 }
 .BookingForm__form1--submit {
+  height: 40px;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -428,7 +441,7 @@ ul {
   background-color: #f18825 !important;
 }
 .BookingFormCalendar__monthGrid--week li.today {
-  background-color: #444;
+  background-color: #282828;
 }
 .BookingFormCalendar__monthGrid--week li:hover {
   background-color: #c7701f;
@@ -476,8 +489,88 @@ ul {
   cursor: default;
 }
 .Contact {
-  background-color: #222;
-  color: #eaeaea;
+  background-color: #181818;
+  color: #fff;
+  padding: 0 0 0 0;
+}
+.Contact__top {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 50px;
+  align-items: center;
+  height: 600px;
+  background-color: #f5f5f5;
+}
+.Contact__info {
+  max-width: 50%;
+  margin: 0;
+  padding: 0;
+}
+.Contact #Contact__map {
+  width: 50%;
+  height: 100%;
+  border-bottom: 1px solid #282828;
+}
+.Contact__form {
+  padding-bottom: 50px;
+  width: 700px;
+  margin: 0 auto;
+  box-sizing: content-box;
+  padding: 0 20px 50px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.Contact__form--text {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.Contact__form--text h3 {
+  text-align: center;
+  margin: 0 0 15px 0;
+  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
+  font-size: 32px;
+}
+.Contact__form--text p {
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.6em;
+}
+.Contact__form--text p .bold {
+  text-transform: uppercase;
+}
+.Contact__form--input {
+  display: flex;
+  width: 48%;
+  flex-direction: column;
+}
+.Contact__form label {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
+  margin-bottom: 15px;
+}
+.Contact__form input,
+.Contact__form textarea {
+  padding: 6px;
+  font-size: 1em;
+  border: 2px solid #fff;
+  min-width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+}
+.Contact__form input:focus,
+.Contact__form textarea:focus {
+  outline: none;
+  border: 2px solid #c7701f;
+  background-color: #fff;
+}
+.Contact__form button {
+  margin: 0 auto;
+  padding: 10px 50px;
 }
 .Footer {
   background-color: #111;
@@ -485,11 +578,11 @@ ul {
   padding: 30px 20px 0 20px;
 }
 .Footer a {
-  color: #eaeaea !important;
+  color: #fff !important;
   text-decoration: none;
 }
 .Footer a:hover {
-  color: #eaeaea !important;
+  color: #fff !important;
   text-decoration: underline;
 }
 .Footer h5 {
@@ -538,7 +631,7 @@ ul {
   color: #666;
 }
 .Footer__AMP--sign-in:hover {
-  color: #eaeaea;
+  color: #fff;
   cursor: pointer;
   text-decoration: underline;
 }
@@ -546,8 +639,8 @@ ul {
   margin-bottom: 75px;
 }
 .Gallery {
-  background-color: #222;
-  color: #eaeaea;
+  background-color: #181818;
+  color: #fff;
 }
 .Gallery h2 {
   margin-right: -7px;
@@ -565,8 +658,8 @@ ul {
   padding: 15px 20px 12px 20px;
 }
 .Gallery__add--button > div {
-  color: #eaeaea;
-  font-size: 1.3em;
+  color: #fff;
+  font-size: 1em;
 }
 .Gallery__add--button:hover {
   cursor: pointer;
@@ -580,7 +673,7 @@ ul {
 .Gallery__add--button--inner--plus {
   font-size: 2.4em;
   margin-right: 10px;
-  margin-top: -30px;
+  margin-top: -18px;
   height: 30px;
 }
 .Gallery__add--button--inner--text {
@@ -604,7 +697,7 @@ ul {
   margin: 0 3px;
   user-select: none;
   font-size: 0.8em;
-  background-color: #444;
+  background-color: #282828;
 }
 .Gallery__filters--filter:hover {
   background-color: #666;
@@ -624,7 +717,7 @@ ul {
   float: left;
   width: 300px;
   height: 300px;
-  background-color: #222;
+  background-color: #181818;
   transition: all 0.3s;
   overflow: hidden;
 }
@@ -662,7 +755,7 @@ ul {
 .Gallery__items--block--resize {
   position: absolute;
   background-color: rgba(255,255,255,0.75);
-  color: #222;
+  color: #181818;
   font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
   text-transform: uppercase;
   height: 100%;
@@ -705,7 +798,7 @@ ul {
   border-radius: 3px;
   z-index: 2;
   opacity: 1;
-  color: #eaeaea;
+  color: #fff;
 }
 .Gallery__items--block--icons--container button:hover {
   cursor: pointer;
@@ -730,7 +823,7 @@ ul {
 }
 .Gallery__items--block--icons--container div {
   background-color: rgba(30,30,30,0.75);
-  color: #eaeaea;
+  color: #fff;
   font-size: 0.8em;
   position: absolute;
   top: 0;
@@ -753,7 +846,7 @@ ul {
   width: 100%;
   height: 100vh;
   background-color: rgba(0,0,0,0.8);
-  color: #eaeaea;
+  color: #fff;
   z-index: 9;
   display: flex;
   align-items: center;
@@ -766,8 +859,8 @@ ul {
   right: 30px;
   width: 40px;
   height: 40px;
-  background-color: #222;
-  color: #eaeaea;
+  background-color: #181818;
+  color: #fff;
   font-size: 1.5em;
   z-index: 10;
   display: flex;
@@ -780,7 +873,7 @@ ul {
   background-color: #b22222;
 }
 .GalleryAddItem__modal {
-  background-color: #222;
+  background-color: #181818;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
@@ -821,11 +914,11 @@ ul {
   border-bottom: 1px solid #f18825;
   font-size: 1em;
   padding: 5px 7px;
-  color: #eaeaea;
+  color: #fff;
 }
 .GalleryAddItem__modal--form input[type=text]:focus {
   outline: none;
-  background-color: #444;
+  background-color: #282828;
 }
 .GalleryAddItem__modal--form--tags {
   display: flex;
@@ -835,8 +928,9 @@ ul {
   margin-bottom: 30px;
 }
 .GalleryAddItem__modal--form--tags--checkbox {
-  background-color: #444;
-  color: #eaeaea;
+  font-size: 13px;
+  background-color: #282828;
+  color: #fff;
   padding: 9px 15px 7px 15px;
   border-radius: 15px;
   margin-right: 10px;
@@ -851,21 +945,23 @@ ul {
   background-color: #f18825;
 }
 .GalleryAddItem__modal--form button[type=reset] {
-  background-color: #444;
-  color: #eaeaea;
+  background-color: #282828;
+  color: #fff;
   margin-right: 20px;
   padding: 10px 13px 8px 13px;
+  font-size: 14px;
 }
 .GalleryAddItem__modal--form button[type=reset]:hover {
   background-color: #666;
 }
 .GalleryAddItem__modal--form button[type=submit] {
-  background-color: #f18825;
-  color: #eaeaea;
+  font-size: 14px;
+  background-color: #54b238;
+  color: #fff;
   padding: 10px 13px 8px 13px;
 }
 .GalleryAddItem__modal--form button[type=submit]:hover {
-  background-color: #c7701f;
+  background-color: #287f28;
 }
 .GalleryDeleteItem {
   position: fixed;
@@ -874,7 +970,7 @@ ul {
   width: 100%;
   height: 100vh;
   background-color: rgba(0,0,0,0.8);
-  color: #eaeaea;
+  color: #fff;
   z-index: 9;
   display: flex;
   align-items: center;
@@ -887,8 +983,8 @@ ul {
   right: 30px;
   width: 40px;
   height: 40px;
-  background-color: #222;
-  color: #eaeaea;
+  background-color: #181818;
+  color: #fff;
   font-size: 1.5em;
   z-index: 10;
   display: flex;
@@ -901,7 +997,7 @@ ul {
   background-color: #b22222;
 }
 .GalleryDeleteItem__modal {
-  background-color: #222;
+  background-color: #181818;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
@@ -941,7 +1037,7 @@ ul {
   background-color: #b22222;
 }
 .GalleryDeleteItem__modal--confirm--cancel {
-  background-color: #444;
+  background-color: #282828;
   font-size: 0.8em;
 }
 .GalleryDeleteItem__modal--confirm--cancel:hover {
@@ -954,7 +1050,7 @@ ul {
   width: 100%;
   height: 100vh;
   background-color: rgba(0,0,0,0.8);
-  color: #eaeaea;
+  color: #fff;
   z-index: 9;
   display: flex;
   align-items: center;
@@ -967,8 +1063,8 @@ ul {
   right: 30px;
   width: 40px;
   height: 40px;
-  background-color: #222;
-  color: #eaeaea;
+  background-color: #181818;
+  color: #fff;
   font-size: 1.5em;
   z-index: 10;
   display: flex;
@@ -981,7 +1077,7 @@ ul {
   background-color: #b22222;
 }
 .GalleryEditItem__modal {
-  background-color: #222;
+  background-color: #181818;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
@@ -1028,14 +1124,14 @@ ul {
   border-bottom: 1px solid #f18825;
   font-size: 1em;
   padding: 5px 7px;
-  color: #eaeaea;
+  color: #fff;
 }
 .GalleryEditItem__modal--form input::placeholder {
-  color: #eaeaea;
+  color: #fff;
 }
 .GalleryEditItem__modal--form input:focus {
   outline: none;
-  background-color: #444;
+  background-color: #282828;
 }
 .GalleryEditItem__modal--form--tags {
   display: flex;
@@ -1047,8 +1143,8 @@ ul {
   flex-wrap: wrap;
 }
 .GalleryEditItem__modal--form--tags--checkbox {
-  background-color: #444;
-  color: #eaeaea;
+  background-color: #282828;
+  color: #fff;
   padding: 9px 15px 7px 15px;
   border-radius: 15px;
   margin-right: 10px;
@@ -1065,7 +1161,7 @@ ul {
 }
 .GalleryEditItem__modal--form button[type=reset] {
   background-color: #444;
-  color: #eaeaea;
+  color: #fff;
   margin-right: 20px;
   padding: 10px 13px 8px 13px;
   font-size: 0.8em;
@@ -1076,7 +1172,7 @@ ul {
 }
 .GalleryEditItem__modal--form button[type=submit] {
   background-color: #54b238;
-  color: #eaeaea;
+  color: #fff;
   padding: 10px 13px 8px 13px;
   font-size: 0.8em;
   font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
@@ -1085,8 +1181,19 @@ ul {
   background-color: #287f28;
 }
 .Home {
-  background-color: #222;
-  color: #eaeaea;
+  padding: 0 0 30px 0;
+  background-color: #fff;
+  color: #fff;
+}
+.Home__old-meets-new {
+  width: 100%;
+}
+.LatestNews {
+  background-color: #fff;
+  color: #111;
+}
+.LatestNews__mockup {
+  width: 100%;
 }
 .Lightbox {
   position: fixed;
@@ -1095,7 +1202,7 @@ ul {
   width: 100%;
   height: 100vh;
   background-color: rgba(0,0,0,0.8);
-  color: #eaeaea;
+  color: #fff;
   z-index: 9;
   display: flex;
   align-items: center;
@@ -1106,7 +1213,7 @@ ul {
 .Lightbox__nav {
   padding: 80px 40px;
   font-size: 3em;
-  color: #eaeaea;
+  color: #fff;
   background: none;
   opacity: 0.5;
   transition: opacity 0.5s;
@@ -1120,8 +1227,8 @@ ul {
   right: 30px;
   width: 40px;
   height: 40px;
-  background-color: #222;
-  color: #eaeaea;
+  background-color: #181818;
+  color: #fff;
   font-size: 1.5em;
   z-index: 10;
   display: flex;
@@ -1134,7 +1241,7 @@ ul {
   background-color: #b22222;
 }
 .Lightbox__image {
-  background-color: #222;
+  background-color: #181818;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
@@ -1162,7 +1269,7 @@ ul {
 }
 .Lightbox__image--caption {
   position: relative;
-  background-color: #222;
+  background-color: #181818;
   line-height: 0em;
   display: flex;
   border-top: 1px solid #f18825;
@@ -1178,8 +1285,8 @@ ul {
   -moz-osx-font-smoothing: grayscale;
 }
 .Menus {
-  background-color: #222;
-  color: #eaeaea;
+  background-color: #181818;
+  color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1187,29 +1294,63 @@ ul {
 .Menus h2 {
   margin-bottom: 35px;
 }
-.Menus__list {
+.Menus__selection {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
 }
-.Menus__list li {
-  padding: 10px 14px;
-  margin: 10px;
-  background-color: #444;
-  user-select: none;
+.Menus__selection--menu {
+  width: 19%;
+  overflow: hidden;
+  position: relative;
 }
-.Menus__list li:hover {
-  cursor: pointer;
-  background-color: #666;
+.Menus__selection--menu img {
+  width: 100%;
+  opacity: 0.6;
+  transition: all 0.3s;
 }
-.Menus__list li.active {
+.Menus__selection--menu--new {
+  position: absolute;
+  bottom: 11px;
+  right: 10px;
+  color: #fff;
+  background-color: #54b238;
+  padding: 3px 5px 2px 6px;
+  border-radius: 3px;
+  z-index: 2;
+  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
+  font-size: 14px;
+}
+.Menus__selection--menu--caption {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  background-color: rgba(0,0,0,0.8);
+  width: 100%;
+  padding: 10px;
+  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
+  font-size: 18px;
+}
+.Menus__selection--menu.active .Menus__selection--menu--caption {
   background-color: #f18825;
 }
-.Menus__list li.active:hover {
+.Menus__selection--menu.active img {
+  opacity: 1;
+}
+.Menus__selection--menu:hover {
   cursor: pointer;
-  background-color: #f18825;
+}
+.Menus__selection--menu:hover .Menus__selection--menu--caption {
+  background-color: #c7701f;
+}
+.Menus__selection--menu:hover img {
+  transform: scale(1.1);
+  opacity: 1;
 }
 .Menus__sections {
   max-width: 1600px;
+  width: 100%;
   margin: 0 auto;
 }
 .MenuSection {
@@ -1236,11 +1377,13 @@ ul {
   letter-spacing: 0.1em;
   margin-right: 5px;
 }
-.MenuSection__options--PDF button {
-  color: #eaeaea;
+.MenuSection__options--PDF {
+  color: #fff;
   text-decoration: none;
-  font-size: 0.8em;
   margin-left: 40px;
+}
+.MenuSection__options--PDF button {
+  font-size: 0.8em;
 }
 .MenuSection__options--filters {
   display: flex;
@@ -1250,29 +1393,47 @@ ul {
 }
 .MenuSection__options--filters li {
   padding: 6px 12px;
-  background-color: #444;
+  background-color: #282828;
   border-radius: 50px;
   margin: 0 5px;
+  user-select: none;
+}
+.MenuSection__options--filters li:hover {
+  cursor: pointer;
+  background-color: #666;
+}
+.MenuSection__options--filters li.active {
+  background-color: #f18825;
+}
+.MenuSection__options--filters li.active:hover {
+  background-color: #c7701f;
 }
 .MenuSection__blocks {
   column-count: 2;
+  column-gap: 20px;
+  column-width: 50%;
+  width: 100%;
+}
+.MenuSection__blocks.single-column {
+  column-count: 1;
+  width: 50%;
 }
 .MenuBlock {
-  background-color: #eaeaea;
-  color: #222;
-  display: inline-block;
-  -webkit-column-break-inside: avoid;
-  page-break-inside: avoid;
   break-inside: avoid;
-  float: left;
-  margin: 0 0 1em;
+  page-break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  background-color: #fff;
+  color: #181818;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  padding: 30px;
+  margin-bottom: 20px;
+  padding: 25px;
   box-sizing: border-box;
   background-image: url("/images/menu/menu-texture.jpg");
 }
 .MenuBlock__title {
-  color: #222;
+  color: #181818;
   margin-bottom: 10px;
   font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
   font-size: 1.6em;
@@ -1290,6 +1451,7 @@ ul {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 10px 10px;
+  position: relative;
 }
 .MenuBlock__items li * {
   font-family: 'Helvetica Neue', sans-serif;
@@ -1324,7 +1486,7 @@ ul {
 }
 .Nav {
   text-align: center;
-  background-color: #222;
+  background-color: #181818;
   padding: 30px 20px;
   margin: 0;
   color: #fff;
@@ -1337,7 +1499,7 @@ ul {
   position: relative;
 }
 .Nav a {
-  color: #eaeaea;
+  color: #fff;
   text-decoration: none;
 }
 .Nav__background-image {
@@ -1347,13 +1509,10 @@ ul {
   transform: translateY(-50%);
   min-width: 100%;
   z-index: 0;
-  transition: opacity 0.5s;
+  opacity: 0.6;
 }
-.Nav__background-image.loading {
-  opacity: 0;
-}
-.Nav__background-image.loaded {
-  opacity: 1;
+.Nav__main-logo {
+  width: 160px;
 }
 .Nav__wrapper {
   z-index: 1;
@@ -1372,9 +1531,14 @@ ul {
   font-size: 1.1em;
   font-weight: 700;
   letter-spacing: 0.1em;
-  padding: 3px 6px;
-  border-bottom: 3px solid rgba(223,125,50,0);
+  padding: 2px;
+  border-bottom: 2px solid rgba(223,125,50,0);
   transition: border-bottom 0.3s;
+  user-select: none;
+}
+.Nav__wrapper--menu li a.active {
+  text-decoration: none;
+  border-bottom-color: #df7d32;
 }
 .Nav__wrapper--menu li a:hover {
   text-decoration: none;
@@ -1384,66 +1548,73 @@ ul {
   text-decoration: none;
 }
 .Newsletter {
-  background-color: #eee;
-  color: #444;
+  background-color: #282828;
+  color: #fff;
   text-align: center;
-  padding-top: 50px;
-  padding-bottom: 0;
-  border-top: 2px solid #f18825;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  border-top: 1px solid #f18825;
+  border-bottom: 1px solid #f18825;
 }
 .Newsletter h4 {
-  font-size: 1.6em;
-  margin-bottom: 30px;
+  font-size: 1.4em;
+  margin-bottom: 15px;
 }
-.Newsletter label {
+.Newsletter form {
+  display: flex;
+  justify-content: center;
+}
+.Newsletter form label {
   margin-right: 10px;
   font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
   text-transform: uppercase;
 }
-.Newsletter input {
+.Newsletter form input {
   background-color: #ddd;
   border: none;
-  margin-right: 30px;
-  color: #222;
+  color: #181818;
   font-size: 1.2em;
-  padding: 8px 8px 6px 8px;
+  padding: 6px 8px 4px 8px;
   width: 300px;
+  font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
 }
-.Newsletter input:focus {
+.Newsletter form input:focus {
   background-color: #ccc;
 }
-.Newsletter form {
-  margin-bottom: 50px;
-}
 .Newsletter form button {
-  font-size: 1em;
+  font-size: 2em;
+  padding: 0 10px 0 15px;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
 }
-.Newsletter__parogon-pubs {
+.ParogonFooter {
+  text-align: center;
+}
+.ParogonFooter__parogon-pubs {
   background-color: #444;
-  color: #eaeaea;
-  padding-top: 50px;
-  padding-bottom: 40px;
+  color: #fff;
+  padding-top: 30px;
+  padding-bottom: 20px;
   width: 100%;
 }
-.Newsletter__parogon-pubs h4 {
+.ParogonFooter__parogon-pubs h4 {
+  font-size: 1.4em;
   margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-family: "Nexa Bold Web", "Segoe UI", arial, verdana, sans-serif;
 }
-.Newsletter__parogon-pubs h5 {
+.ParogonFooter__parogon-pubs h5 {
   font-size: 1.2em;
 }
-.Newsletter__parogon-pubs--logos {
+.ParogonFooter__parogon-pubs--logos {
   display: flex;
   justify-content: space-between;
 }
 .ParogonNav {
   background-color: #000;
-  color: #eaeaea;
+  color: #fff;
   padding: 0 10px;
 }
 .ParogonNav .page-container {
@@ -1454,7 +1625,7 @@ ul {
 .ParogonNav a {
   display: flex;
   align-items: center;
-  color: #eaeaea;
+  color: #fff;
   user-select: none;
   text-decoration: none;
 }
@@ -1468,25 +1639,25 @@ ul {
 .ParogonNav__pub-list--item {
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  font-size: 0.8em;
-  padding: 10px 12px;
+  font-size: 0.75em;
+  padding: 9px 12px 8px 12px;
 }
 .ParogonNav__pub-list--item:hover {
   cursor: pointer;
   background-color: #ddd;
-  color: #222;
+  color: #181818;
 }
 .ParogonNav__pub-list--item.current {
-  color: #eaeaea;
+  color: #fff;
   background-color: #444;
 }
 .ParogonNav__pub-list--item.current:hover {
   cursor: pointer;
   background-color: #ddd;
-  color: #222;
+  color: #181818;
 }
 .ToastMessages {
-  color: #eaeaea;
+  color: #fff;
   position: fixed;
   top: 20px;
   right: 20px;
@@ -1510,7 +1681,7 @@ ul {
 .ToastMessages__message--close {
   background: none;
   padding: 5px 10px;
-  color: #eaeaea;
+  color: #fff;
 }
 .ToastMessages__message.success {
   background-color: #54b238;

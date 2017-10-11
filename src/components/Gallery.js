@@ -26,18 +26,23 @@ class Gallery extends Component {
       deleteItem: null,
       dragging: null,
       filters: ["food", "drinks", "restaurant", "decor", "service"],
-      currentFilters: []
+      currentFilters: [],
+      filteredGalleryItems: []
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.loadGallery();
   }
 
+  componentDidUpdate() {
+    this.filterGallery();
+  }
+
   loadGallery() {
-    if (typeof Storage !== undefined) {
-      const galleryItems = localStorage.getItem("galleryItems");
-      this.setState({ galleryItems: JSON.parse(galleryItems) });
+    if (typeof Storage !== "undefined") {
+      const galleryItems = JSON.parse(localStorage.getItem("galleryItems"));
+      this.setState({ galleryItems, filteredGalleryItems: galleryItems });
     }
     this.getGallery();
   }
@@ -46,13 +51,13 @@ class Gallery extends Component {
     axios
       .get(this.galleryApi)
       .then(res => {
-        if (typeof res.data.images !== undefined) {
-          this.setState({ galleryItems: res.data.images });
+        if (typeof res.data.images !== "undefined") {
+          const galleryItems = res.data.images;
+          this.setState({
+            galleryItems
+          });
           if (typeof Storage !== "undefined") {
-            localStorage.setItem(
-              "galleryItems",
-              JSON.stringify(res.data.images)
-            );
+            localStorage.setItem("galleryItems", JSON.stringify(galleryItems));
           }
         } else {
           this.setState({ galleryItems: [] });
@@ -67,8 +72,10 @@ class Gallery extends Component {
     axios
       .post(this.galleryApi, newGalleryItems)
       .then(res => {
-        if (typeof res.data.images !== undefined) {
-          this.setState({ galleryItems: res.data.images });
+        if (typeof res.data.images !== "undefined") {
+          this.setState({
+            galleryItems: res.data.images
+          });
         } else {
           this.setState({ galleryItems: [] });
         }
@@ -85,24 +92,30 @@ class Gallery extends Component {
   }
 
   toggleFilter(filter) {
-    let { currentFilters } = this.state;
+    let currentFilters = this.state.currentFilters;
     const index = currentFilters.indexOf(filter);
     if (index >= 0) {
       currentFilters.splice(index, 1);
     } else {
       currentFilters.push(filter);
     }
-    this.setState(currentFilters);
+    this.setState({ currentFilters });
   }
 
   filterGallery() {
-    const { currentFilters, galleryItems } = this.state;
+    const { galleryItems, currentFilters } = this.state;
     // Bypass filter loop if none are set (saves processing cycles) or if user is logged in, because you can't re-arrange the gallery properly when filters are applied
     if (currentFilters.length === 0 || this.props.editMode === true) {
-      return galleryItems;
+      if (
+        JSON.stringify(galleryItems) !==
+        JSON.stringify(this.state.filteredGalleryItems)
+      ) {
+        this.setState({ filteredGalleryItems: this.state.galleryItems });
+      }
+      return;
     }
-    // Loop through each gallery image filter if tag matches
-    return galleryItems.filter(item => {
+    // Loop through each gallery image and filter it if tag matches
+    const filteredGalleryItems = galleryItems.filter(item => {
       let match = false;
       currentFilters.forEach(filter => {
         if (item.tags.includes(filter)) {
@@ -111,6 +124,12 @@ class Gallery extends Component {
       });
       return match;
     });
+    if (
+      JSON.stringify(filteredGalleryItems) !==
+      JSON.stringify(this.state.filteredGalleryItems)
+    ) {
+      this.setState({ filteredGalleryItems });
+    }
   }
 
   deleteItemModal(index, enabled = true) {
@@ -140,11 +159,11 @@ class Gallery extends Component {
 
   handleLightbox(index) {
     // Loop around start/end of array
-    if (index >= this.state.galleryItems.length) {
+    if (index >= this.state.filteredGalleryItems.length) {
       index = 0;
     }
     if (index < 0) {
-      index = this.state.galleryItems.length - 1;
+      index = this.state.filteredGalleryItems.length - 1;
     }
     this.setState({ lightbox: index });
   }
@@ -169,6 +188,7 @@ class Gallery extends Component {
   }
 
   handleDrop(e, dropIndex) {
+    e.preventDefault();
     const { galleryItems, dragging } = this.state;
     if (dragging === dropIndex) return;
     const draggedItem = galleryItems.splice(dragging, 1);
@@ -181,7 +201,7 @@ class Gallery extends Component {
   }
 
   render() {
-    const galleryItems = this.filterGallery().map((entry, i) => {
+    const galleryItems = this.state.filteredGalleryItems.map((entry, i) => {
       return (
         <GalleryImage
           key={i}
@@ -219,7 +239,7 @@ class Gallery extends Component {
           <h2>Gallery</h2>
           {this.state.lightbox !== null ? (
             <Lightbox
-              imgData={this.state.galleryItems[this.state.lightbox]}
+              imgData={this.state.filteredGalleryItems[this.state.lightbox]}
               handleLightbox={this.handleLightbox.bind(this)}
               num={this.state.lightbox}
             />

@@ -5,52 +5,31 @@ class Nav extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      navImage: this.getNavImage(),
-      oldNavImage: this.getNavImage(),
-      navImageLoading: false,
-      navImageLoaded: false
+      pages: {
+        home: null,
+        menus: null,
+        gallery: null,
+        careers: "https://parogonpubs.co.uk/jobs/",
+        contact: null
+      }
     };
   }
 
-  getNavImage() {
-    const pages = ["/home", "/menus", "/gallery", "/jobs", "/contact"];
-    var path = this.context.router.location.pathname;
-    const slug = pages.indexOf(path) > 0 ? path.replace("/", "") : "home";
-    return `/images/nav-background-${slug}.jpg`;
+  componentWillMount() {
+    this.setState({
+      currentPage: this.getPage()
+    });
   }
 
-  handleImageLoaded() {
-    if (this.state.navImageLoaded) return;
-    // Sets new image overlay to 1 opacity, requires 1ms timeout to work
-    setTimeout(
-      function() {
-        this.setState({
-          navImageLoaded: true
-        });
-      }.bind(this),
-      1
-    );
-    // Once CSS transition has finished, remove the top image and set the new image to the background
-    setTimeout(
-      function() {
-        this.setState({
-          oldNavImage: this.state.navImage,
-          navImageLoading: false
-        });
-      }.bind(this),
-      500
-    );
+  getPage() {
+    return this.context.router.location.pathname.replace("/", "");
   }
 
   componentDidUpdate() {
-    const oldNavImage = this.state.navImage;
-    const navImage = this.getNavImage();
-    if (navImage !== oldNavImage) {
+    const currentPage = this.getPage();
+    if (currentPage !== this.state.currentPage) {
       this.setState({
-        navImage,
-        oldNavImage,
-        navImageLoading: true,
-        navImageLoaded: false
+        currentPage
       });
     }
   }
@@ -58,49 +37,41 @@ class Nav extends Component {
   render() {
     return (
       <div className="Nav">
-        <img
-          src={this.state.oldNavImage}
-          alt="The Orange Tree - Restauraunt Photography"
+        <video
+          autoplay
+          loop
           className="Nav__background-image"
-        />
-        {this.state.navImageLoading ? (
-          <img
-            src={this.state.navImage}
-            alt="The Orange Tree - Restauraunt Photography"
-            className={`Nav__background-image ${this.state.navImageLoaded
-              ? "loaded"
-              : "loading"}`}
-            onload={this.handleImageLoaded()}
-          />
-        ) : (
-          ""
-        )}
+          poster="/videos/orange-tree-header-loop-video.jpg"
+        >
+          <source src="/videos/orange-tree-header-loop-video.mp4" />
+        </video>
         <div className="Nav__wrapper">
           <IndexLink>
             <img
-              src="/images/orange-tree-logo.jpg"
+              src="/images/orange-tree-logo.svg"
               alt="Orange Tree Logo"
               className="Nav__main-logo"
             />
           </IndexLink>
           <ul className="Nav__wrapper--menu">
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/menus">Menus</Link>
-            </li>
-            <li>
-              <Link to="/gallery">Gallery</Link>
-            </li>
-            <li>
-              <a href="https://parogonpubs.co.uk/jobs/" target="_blank">
-                Jobs
-              </a>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
+            {Object.keys(this.state.pages).map(page => {
+              const link = page === "home" ? "" : page;
+              const href = this.state.pages[page];
+              const active = link === this.state.currentPage ? "active" : "";
+              return (
+                <li>
+                  {href === null ? (
+                    <Link className={active} to={`/${link}`}>
+                      {page}
+                    </Link>
+                  ) : (
+                    <a href={href} target="_blank">
+                      {page}
+                    </a>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

@@ -7,31 +7,67 @@
   align-items center
 
   h2
-    margin-bottom 35px
+    margin-bottom 35px  
 
-  &__list
+  &__selection
     display flex
-    flex-wrap wrap
+    justify-content space-between
+    
+    &--menu
+      width 19%
+      overflow hidden
+      position relative
+      
+      img 
+        width 100%
+        opacity 0.6
+        transition all .3s
 
-    li
-      padding 10px 14px
-      margin 10px
-      background-color $darkgreyhighlight
-      user-select none
+      &--new
+        position absolute 
+        bottom 11px
+        right 10px
+        color $whitetext
+        background-color $green
+        padding 3px 5px 2px 6px
+        border-radius 3px
+        z-index 2
+        font-family $nexabold
+        font-size 14px
 
-      &:hover
-        cursor pointer
-        background-color #666
+      &--caption
+        position absolute 
+        bottom 0
+        z-index 1
+        color $whitetext
+        text-align center
+        background-color rgba(0,0,0,0.8)
+        width 100%
+        padding 10px
+        font-family $nexabold
+        font-size 18px
 
       &.active
-        background-color $orange
 
-        &:hover
-          cursor pointer
+        .Menus__selection--menu--caption
           background-color $orange
+
+        img 
+          opacity 1
+        
+      &:hover
+        cursor pointer
+
+        .Menus__selection--menu--caption
+          background-color $darkorange
+
+        img 
+          transform scale(1.1)
+          opacity 1
 
   &__sections
     max-width 1600px
+    width 100%
     margin 0 auto
 
 .MenuSection
@@ -51,18 +87,20 @@
     align-items center
     margin-bottom 30px
 
-    span 
+    & span 
       font-family $nexabold
       text-transform uppercase
       font-size 0.8em
       letter-spacing 0.1em
       margin-right 5px
 
-    &--PDF button
+    &--PDF
       color $whitetext
       text-decoration none
-      font-size 0.8em
       margin-left 40px
+      
+      & button
+        font-size 0.8em
 
     &--filters
       display flex
@@ -70,26 +108,45 @@
       font-size 0.8em
       letter-spacing 0.1em
 
-      li
+      & li
         padding 6px 12px 
         background-color $darkgreyhighlight
         border-radius 50px
         margin 0 5px
+        user-select none
+
+        &:hover
+          cursor pointer
+          background-color #666
+
+        &.active
+          background-color $orange
+
+          &:hover
+            background-color $darkorange
 
   &__blocks
     column-count 2
+    column-gap 20px
+    column-width 50%
+    width 100%
+
+    &.single-column
+      column-count 1
+      width 50%
+      
 
 .MenuBlock
+  break-inside avoid
+  page-break-inside avoid
+  -webkit-column-break-inside avoid
   background-color $whitetext
   color $darkgrey
-  display inline-block
-  -webkit-column-break-inside avoid
-  page-break-inside avoid
-  break-inside avoid
-  float left
-  margin 0 0 1em
+  display flex
+  flex-direction column
   width 100%
-  padding 30px
+  margin-bottom 20px
+  padding 25px
   box-sizing border-box
   background-image url('/images/menu/menu-texture.jpg')
 
@@ -114,6 +171,7 @@
       flex-wrap wrap
       justify-content space-between
       padding 10px 10px
+      position relative
 
       *
         font-family 'Helvetica Neue', sans-serif
@@ -125,7 +183,7 @@
       font-size 1.1em
       padding 15px 0 5px 0
       font-family $nexabold
-      text-transform uppercase
+      text-transform uppercase 
 
     &--description
       flex 0 0 90%

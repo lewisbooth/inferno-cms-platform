@@ -44,20 +44,23 @@ class BookingForm extends Component {
   updateCalendar(day, month, year) {
     const { date } = this.state;
     const newDate = date.split("-");
-    if (typeof day !== undefined) {
+    if (typeof day !== "undefined") {
       newDate[2] = day.toString().padStart(2, "0");
     }
-    if (typeof month !== undefined) {
+    if (typeof month !== "undefined") {
       newDate[1] = month.toString().padStart(2, "0");
     }
-    if (typeof year !== undefined) {
+    if (typeof year !== "undefined") {
       newDate[0] = year.toString();
     }
-    this.setState({ selectedDate: newDate.join("-") });
+    this.setState({
+      selectedDate: newDate.join("-"),
+      hideCalendar: true
+    });
   }
 
   setTime(time) {
-    this.setState({ time });
+    this.setState({ time, hideTimes: true });
   }
 
   // Increments/decrements the guests input
@@ -123,6 +126,9 @@ class BookingForm extends Component {
     const guestDecrementDisabled = this.state.guests <= 1 ? "disabled" : "";
     return (
       <div className="BookingForm page">
+        <h3>
+          Experience <span className="bold-orange">The Orange Tree</span>
+        </h3>
         <div className="page-container">
           <form
             onsubmit={e => this.submitFirst(e)}

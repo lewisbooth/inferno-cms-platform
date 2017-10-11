@@ -11,7 +11,7 @@ function generateMonth(startDay, daysInMonth, selectedDay, endDay) {
   // Keep track of current day during loops
   let day = 1;
   // Loop through each week
-  for (let i = 0; i < daysInMonth; i += 7) {
+  for (let i = 0; i < daysInMonth + 7; i += 7) {
     const week = [];
     if (i === 0) {
       // If first week, pad the start
@@ -123,6 +123,8 @@ function generateCalendar(date) {
     null,
     currentDay
   );
+
+  console.log(calendar);
 
   return calendar;
 }

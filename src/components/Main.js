@@ -2,8 +2,10 @@ import Component from "inferno-component";
 import { cloneElement } from "inferno-compat";
 import AdminBar from "./AdminBar";
 import ParogonNav from "./ParogonNav";
+import ParogonFooter from "./ParogonFooter";
 import Nav from "./Nav";
 import BookingForm from "./BookingForm";
+import BookToday from "./BookToday";
 import Newsletter from "./Newsletter";
 import Footer from "./Footer";
 import ToastMessage from "./ToastMessage";
@@ -91,6 +93,8 @@ class Main extends Component {
         <BookingForm />
         {currentPage}
         <Newsletter />
+        {currentPage.props.path !== "contact" ? <BookToday /> : null}
+        <ParogonFooter />
         <Footer
           versionNumber={versionNumber}
           loggedIn={loggedIn}

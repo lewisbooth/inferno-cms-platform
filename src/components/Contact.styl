@@ -1,3 +1,81 @@
 .Contact
   background-color $darkgrey
   color $whitetext
+  padding 0 0 0 0
+
+  &__top
+    display flex
+    flex-direction row
+    margin-bottom 50px
+    align-items center
+    height 600px
+    background-color $lightgrey
+
+  &__info
+    max-width 50%
+    margin 0
+    padding 0
+
+  #Contact__map
+    width 50%
+    height 100%
+    border-bottom 1px solid $darkgreyhighlight
+
+  &__form
+    padding-bottom 50px
+    width 700px
+    margin 0 auto
+    box-sizing content-box
+    padding 0 20px 50px 0
+    display flex
+    flex-wrap wrap
+    justify-content space-between
+
+    &--text
+      width 100%
+      margin-bottom 10px
+
+      h3
+        text-align center 
+        margin 0 0 15px 0
+        font-family $nexabold
+        font-size 32px
+
+      p
+        margin-bottom 20px
+        text-align center 
+        font-family $standard
+        font-weight 300
+        letter-spacing 0.02em
+        line-height 1.6em
+
+        .bold
+          text-transform uppercase
+
+    &--input
+      display flex
+      width 48%
+      flex-direction column
+
+    label
+      text-transform uppercase
+      letter-spacing 0.1em
+      font-family $nexabold
+      margin-bottom 15px
+
+    input, textarea
+      padding 6px
+      font-size 1em
+      border 2px solid white
+      min-width 100%
+      box-sizing border-box
+      margin-bottom 30px
+    
+      &:focus
+        outline none
+        border 2px solid $darkorange
+        background-color #fff
+
+    button
+      margin 0 auto
+      padding 10px 50px

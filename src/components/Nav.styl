@@ -23,13 +23,10 @@
     transform translateY(-50%)
     min-width 100%
     z-index 0
-    transition opacity 0.5s
+    opacity 0.6
 
-    &.loading
-      opacity 0
-
-    &.loaded
-      opacity 1
+  &__main-logo 
+    width 160px
     
   &__wrapper
     z-index 1
@@ -48,9 +45,14 @@
         font-size 1.1em
         font-weight 700
         letter-spacing 0.1em
-        padding 3px 6px
-        border-bottom 3px solid rgba(223,125,50, 0)
+        padding 2px
+        border-bottom 2px solid rgba(223,125,50, 0)
         transition border-bottom 0.3s
+        user-select none
+
+        &.active
+          text-decoration none
+          border-bottom-color rgba(223,125,50, 1)
 
         &:hover
           text-decoration none
